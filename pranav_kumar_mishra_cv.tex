@@ -80,7 +80,7 @@
 \usepackage{environ}
 \NewEnviron{EntriesTable}{
 \TablePad
-\begin{tabularx}{\textwidth}{@{}p{0.10\textwidth}@{\hspace{0.02\textwidth}}p{0.88\textwidth}@{}}
+\begin{tabularx}{\textwidth}{@{}p{0.15\textwidth}@{\hspace{0.02\textwidth}}p{0.83\textwidth}@{}}
   \BODY
 \end{tabularx}
 }
@@ -107,7 +107,7 @@
 % Macros to set the year and duration on the left column
 \newcommand{\Duration}[2]{\fontsize{9pt}{0}\selectfont #1 -- #2}
 \newcommand{\Year}[1]{\fontsize{9pt}{0}\selectfont #1}
-\newcommand{\Ongoing}{Ongoing}
+\newcommand{\Ongoing}{Present} %Present / Today / Now / Ongoing
 \newcommand{\Future}{future}
 \newcommand{\Appointment}[4]{\textbf{#1} \newline #2 \newline #3 \newline #4}
 
@@ -251,14 +251,14 @@
 %----------------------------------------------------------------------------------------------
 
 \begin{EntriesTable}
-  % \Duration{2022}{\Ongoing}  &
-  % \Appointment{Post-Doctoral Research Fellow}{Laboratory of Alfonso Torquati {\RUSURG}}{\RUSH, USA}
-  % \\
-  % \Duration{2021}{\Ongoing}  &
-  % \Appointment{Post-Doctoral Research Fellow}{Laboratory of Anna Spagnoli{\RUORTHO}}{\RUSH, USA}
-  % \\
-  % \Duration{2021}{2022}  &
-  % \Appointment{Post-Doctoral Research Fellow}{Laboratory of Susan Chubinskaya}{\RUPEDS}{\RUSH, USA}
+%   \Duration{2022}{\Ongoing}  &
+%   \Appointment{Post-Doctoral Research Fellow}{Laboratory of Alfonso Torquati {\RUSURG}}{\RUSH, USA}
+%   \\
+%   \Duration{2021}{\Ongoing}  &
+%   \Appointment{Post-Doctoral Research Fellow}{Laboratory of Anna Spagnoli{\RUORTHO}}{\RUSH, USA}
+%   \\
+%   \Duration{2021}{2022}  &
+%   \Appointment{Post-Doctoral Research Fellow}{Laboratory of Susan Chubinskaya}{\RUPEDS}{\RUSH, USA}
 
 
   \Duration{2021}{\Ongoing}  &
