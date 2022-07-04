@@ -1,0 +1,367 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% A clean template for an academic CV
+%
+% Uses tabularx to create two column entries (date and job/edu/citation).
+% Defines commands to make adding entries simpler.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt, letterpaper]{article}
+
+% Full Unicode support for non-ASCII characters
+% \usepackage[utf8]{inputenc}
+
+% Useful aliases
+\newcommand{\WASHU}{Washington University in St. Louis}
+\newcommand{\KMC}{Kasturba Medical College, Manipal}
+\newcommand{\MAHE}{Manipal Academy of Higher Education}
+\newcommand{\RUSH}{Rush University}
+\newcommand{\RUMC}{Rush University Medical Center}
+\newcommand{\RUORTHO}{Department of Orthopedic Surgery}
+\newcommand{\RUPEDS}{Department of Pediatric Surgery}
+\newcommand{\RUSURG}{Department of Surgery}
+\newcommand{\SURGONC}{Department of Surgical Oncology}
+
+% Identifying information
+\newcommand{\Title}{Curriculum Vitae}
+\newcommand{\FirstName}{Pranav}
+\newcommand{\MiddleName}{Kumar}
+\newcommand{\LastName}{Mishra}
+\newcommand{\Initials}{PK}
+\newcommand{\MyName}{Dr. \FirstName\ \MiddleName\ \LastName}
+\newcommand{\Me}{\textbf{\LastName, \Initials}}  % For citations
+\newcommand{\Email}{pranav\_k\_mishra@rush.edu}
+\newcommand{\PersonalWebsite}{www.drpranavmishra.com}
+% \newcommand{\LabWebsite}{www.SOMEWEBSITEHERE.EDU}
+\newcommand{\ORCID}{0000-0001-5219-6269}
+\newcommand{\Address}{
+  Cohn Research Building \\ 1735 W. Harrison St, Ste 563 \\ Chicago, IL 60612 \\ United States
+}
+
+% This section should be removed and the BibLaTex should be used instead
+%------------------------------------------------------------------------------
+% % Names for citing coauthors
+% \newcommand{\Val}{Barbosa, VCF}
+% \newcommand{\Bi}{Oliveira Jr, VC}
+% \newcommand{\Paul}{Wessel, P}
+% \newcommand{\Joaquim}{Luis, J}
+
+
+
+% Template configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Disable hyphenation
+\usepackage[none]{hyphenat}
+
+% Control the font size
+\usepackage{anyfontsize}
+
+% Icon fonts (requires using xelatex or luatex)
+\usepackage[fixed]{fontawesome5}
+\usepackage{academicons}
+
+% Template variables for styling
+\newcommand{\TablePad}{\vspace{-0.4cm}}
+\newcommand{\SoftwareTitle}[1]{{\bfseries #1}}
+\newcommand{\TableTitle}[1]{{\fontsize{12pt}{0}\selectfont \itshape #1}}
+
+% For fancy and multipage tables
+\usepackage{tabularx}
+\usepackage{ltablex}
+
+% Supress warnings for the box size 
+% (https://tex.stackexchange.com/questions/50830/do-i-have-to-care-about-bad-boxes/50850)
+\hbadness=99999
+\hfuzz=9pt
+
+% Define a new environment to place all CV entries in a 2-column table.
+% Left column are the dates, right column the entries.
+\usepackage{environ}
+\NewEnviron{EntriesTable}{
+\TablePad
+\begin{tabularx}{\textwidth}{@{}p{0.10\textwidth}@{\hspace{0.02\textwidth}}p{0.88\textwidth}@{}}
+  \BODY
+\end{tabularx}
+}
+\NewEnviron{EntriesTableExtra}{
+\TablePad
+\begin{tabularx}{\textwidth}{@{}p{0.10\textwidth}@{\hspace{0.02\textwidth}}p{0.79\textwidth}@{\hspace{0.02\textwidth}}>{\raggedright\arraybackslash}p{0.07\textwidth}}
+  \BODY
+\end{tabularx}
+}
+
+% Macros to add links and mark publications
+\newcommand{\DOI}[1]{doi:\href{https://doi.org/#1}{#1}}
+\newcommand{\DOILink}[1]{\href{https://doi.org/#1}{doi.org/#1}}
+\newcommand{\Website}[1]{\href{https://#1}{#1}}
+\newcommand{\Preprint}[1]{\href{https://doi.org/#1}{\faFilePdf}}
+\newcommand{\Youtube}[1]{\href{https://www.youtube.com/watch?v=#1}{\faYoutube}}
+\newcommand{\GitHub}[1]{\href{https://github.com/#1}{\faGithub}}
+\newcommand{\Data}[1]{\href{https://doi.org/#1}{\faChartLine}}
+\newcommand{\Slides}[1]{\href{https://#1}{\faTv}}
+\newcommand{\SlidesDOI}[1]{\href{https://doi.org/#1}{\faTv}}
+\newcommand{\PosterDOI}[1]{\href{https://doi.org/#1}{\faImage}}
+\newcommand{\OA}{\thinspace\aiOpenAccess\enspace}
+
+% Macros to set the year and duration on the left column
+\newcommand{\Duration}[2]{\fontsize{9pt}{0}\selectfont #1 -- #2}
+\newcommand{\Year}[1]{\fontsize{9pt}{0}\selectfont #1}
+\newcommand{\Ongoing}{Ongoing}
+\newcommand{\Future}{future}
+\newcommand{\Appointment}[4]{\textbf{#1} \newline #2 \newline #3 \newline #4}
+
+% Define command to insert month name and year as date
+\usepackage{datetime}
+\newdateformat{monthyear}{\monthname[\THEMONTH], \THEYEAR}
+
+% Set the page margins
+\usepackage[a4paper,margin=1.5cm,includehead,headsep=5mm]{geometry}
+
+% To get the total page numbers (\pageref{LastPage})
+\usepackage{lastpage}
+
+% No indentation
+\setlength\parindent{0cm}
+
+% Increase the line spacing
+\renewcommand{\baselinestretch}{1.2}
+% and the spacing between rows in tables
+\renewcommand{\arraystretch}{1.5}
+
+% Remove space between items in itemize and enumerate
+\usepackage{enumitem}
+\setlist{nosep}
+
+% Use custom colors
+\usepackage[usenames,dvipsnames]{xcolor}
+
+% Set fonts (requires compilation with xelatex)
+\usepackage{fontspec}
+\setmainfont[%
+  Path = fonts/notoserif/,
+  UprightFont = NotoSerif-Regular,
+  BoldFont = NotoSerif-Bold,
+  ItalicFont = NotoSerif-Italic,
+  Extension = .ttf
+]{NotoSerif}
+
+
+
+% Set the spacing for sections
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\mdseries} % format
+  {} % label
+  {0pt} % separation (left separation for hang)
+  {} % text before title
+  [\titlerule] % text after title
+\titleformat{\subsection}
+  {\normalfont\large\mdseries} % format
+  {} % label
+  {0pt} % separation (left separation for hang)
+  {} % text before title
+
+% Disable number of sections. Use this instead of "section*" so that the sections still
+% appear as PDF bookmarks. Otherwise, would have to add the table of contents entries
+% manually.
+\makeatletter
+\renewcommand{\@seccntformat}[1]{}
+\makeatother
+
+% Set fancy headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\fontsize{9pt}{10pt}\selectfont
+  \monthyear\today
+}
+\chead{
+  \fontsize{9pt}{10pt}\selectfont
+  \MyName
+  \hspace{0.2cm} -- \hspace{0.2cm}
+  \Title
+}
+\rhead{\fontsize{9pt}{10pt}\selectfont \thepage{} of \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+
+% Metadata for the PDF output and control of hyperlinks
+\usepackage[colorlinks=true]{hyperref}
+\hypersetup{
+  pdftitle={\MyName\ - \Title},
+  pdfauthor={\MyName},
+  linkcolor=blue,
+  citecolor=blue,
+  filecolor=black,
+  urlcolor=MidnightBlue
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{final}
+
+\begin{document}
+
+% No header for the first page
+\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{minipage}[t]{0.7\textwidth}
+{\fontsize{22pt}{0}\selectfont\MyName}
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+  \begin{flushright}
+    Last updated: \monthyear\today
+  \end{flushright}
+\end{minipage}
+\\[-0.1cm]
+\rule{\textwidth}{2pt}
+\\[0.1cm]
+\begin{minipage}[t]{0.7\textwidth}
+    ORCID: \href{https://orcid.org/\ORCID}{\ORCID}
+    \\
+    Email: \href{mailto:\Email}{\Email}
+    \\
+    % Research group: \Website{\LabWebsite} ----- Do not have research group website
+    % \\
+    Website: \Website{\PersonalWebsite}
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+  \begin{flushright}
+    \Address
+  \end{flushright}
+\end{minipage}
+
+%----------------------------------------------------------------------------------------------
+\section{Education}
+%----------------------------------------------------------------------------------------------
+
+\begin{EntriesTable}
+  \Year{2020}  &
+  \textbf{MBBS}, Kasturba Medical College, Manipal, India
+  \\
+  \Year{2013}  &
+  \textbf{BA in Biology}, Washington University in St. Louis, USA
+  \\
+  \Year{2009}  &
+  \textbf{EMT-B}, College of Dupage, USA
+\end{EntriesTable}
+
+
+%----------------------------------------------------------------------------------------------
+\section{Professional Appointments}
+%----------------------------------------------------------------------------------------------
+
+\begin{EntriesTable}
+  % \Duration{2022}{\Ongoing}  &
+  % \Appointment{Post-Doctoral Research Fellow}{Laboratory of Alfonso Torquati {\RUSURG}}{\RUSH, USA}
+  % \\
+  % \Duration{2021}{\Ongoing}  &
+  % \Appointment{Post-Doctoral Research Fellow}{Laboratory of Anna Spagnoli{\RUORTHO}}{\RUSH, USA}
+  % \\
+  % \Duration{2021}{2022}  &
+  % \Appointment{Post-Doctoral Research Fellow}{Laboratory of Susan Chubinskaya}{\RUPEDS}{\RUSH, USA}
+
+
+  \Duration{2021}{\Ongoing}  &
+  \Appointment{Post-Doctoral Research Fellow}
+  {Laboratory of Anna Spagnoli, {\RUORTHO}}
+  {Laboratory of Alfonso Torquati, {\RUSURG}}
+  {Laboratory of Susan Chubinskaya, {\RUPEDS} (2021-2022)}
+  
+  {\RUSH, USA}
+
+
+  \\
+  \Duration{2021}{2021}  &
+  \Appointment{Junior Resident - Non-Academic}{\SURGONC}{\KMC}{\MAHE, India}
+
+
+
+\end{EntriesTable}
+
+
+%----------------------------------------------------------------------------------------------
+% \section{Awards and Honors}
+%----------------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------------
+\section{Grants \& Fellowships}
+%----------------------------------------------------------------------------------------------
+
+\begin{EntriesTable}
+
+  \Duration{2021}{2022}  &
+  \Appointment{DNA damage and cellular senescence in osteoarthritis pathophysiology}
+  {NIH: R01 AG044034/AG/NIA}
+  {PI: Richard F Loeser, Department of Medicine, University of North Carolina, Chapel Hill}
+  {Sub-contract: Susan Chubinskaya, {\RUPEDS}, {\RUSH}}
+  
+  {Role: Pranav Mishra, human tissue procurement, morphological assessment, and processing}
+  \\
+  \Duration{2009}{2009}  &
+  \Appointment{Summer Undergraduate Research Fellowship}
+  {PI: Igor Efimov, Department of Biomedical Engineering, {\WASHU}}
+  {Funding: Howard Hughes Medical Institute and Imaging Sciences Pathways training grant}
+  {Amount: \$ 3750}
+
+\end{EntriesTable}
+
+% %----------------------------------------------------------------------------------------------
+% \section{Publications}
+% %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+% \section{Invited Talks}
+% %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+% \section{Conference Activity}
+% %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+% \section{Departmental Talks}
+% %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+% \section{Teaching Experience}
+% %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+% \section{Research Experience}
+% %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+% \section{Service to Profession}
+% %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+% \section{University Service}
+% %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+% \section{Extracurricular University Service}
+% %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+% \section{Community Involvement}
+% %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+% \section{Related Professional Skills}
+% %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+% \section{Languages}
+% %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+% \section{Professional Memberships}
+% %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+% \section{References}
+% %----------------------------------------------------------------------------------------------
+
+
+%-----------------------------------------------------------------------------------------------
+\end{document}
