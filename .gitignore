@@ -8,3 +8,6 @@ output/
 *.log
 *.out
 *.pdf
+
+my_citations.bib
+leonardo_uieda_cv_summary.tex
