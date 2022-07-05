@@ -41,12 +41,7 @@
 % This section should be removed and the BibLaTex should be used instead
 %------------------------------------------------------------------------------
 % % Names for citing coauthors
-% \newcommand{\Val}{Barbosa, VCF}
-% \newcommand{\Bi}{Oliveira Jr, VC}
-% \newcommand{\Paul}{Wessel, P}
-% \newcommand{\Joaquim}{Luis, J}
-
-
+% \newcommand{\SomeName}{Last, FI MI}
 
 % Template configuration
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -73,7 +68,7 @@
 % Supress warnings for the box size 
 % (https://tex.stackexchange.com/questions/50830/do-i-have-to-care-about-bad-boxes/50850)
 \hbadness=99999
-\hfuzz=9pt
+\hfuzz=2pt
 
 % Define a new environment to place all CV entries in a 2-column table.
 % Left column are the dates, right column the entries.
@@ -109,7 +104,8 @@
 \newcommand{\Year}[1]{\fontsize{9pt}{0}\selectfont #1}
 \newcommand{\Ongoing}{Present} %Present / Today / Now / Ongoing
 \newcommand{\Future}{future}
-\newcommand{\Appointment}[4]{\textbf{#1} \newline #2 \newline #3 \newline #4}
+\newcommand{\Appointment}[4]{\textbf{#1}\newline  #2\newline  #3\newline  #4}
+\newcommand{\Twoline}[2]{\textbf{#1}\newline  #2}
 
 % Define command to insert month name and year as date
 \usepackage{datetime}
@@ -173,16 +169,16 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\fontsize{9pt}{10pt}\selectfont
+\lfoot{\fontsize{9pt}{10pt}\selectfont
   \monthyear\today
 }
-\chead{
+\cfoot{
   \fontsize{9pt}{10pt}\selectfont
   \MyName
   \hspace{0.2cm} -- \hspace{0.2cm}
   \Title
 }
-\rhead{\fontsize{9pt}{10pt}\selectfont \thepage{} of \pageref*{LastPage}}
+\rfoot{\fontsize{9pt}{10pt}\selectfont \thepage{} of \pageref*{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
 
 % Metadata for the PDF output and control of hyperlinks
@@ -204,17 +200,30 @@
 \thispagestyle{empty}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{minipage}[t]{0.7\textwidth}
+\begin{center}
+{\fontsize{12pt}{0}\selectfont Curriculum Vit\ae}
+\\[0.3cm]
 {\fontsize{22pt}{0}\selectfont\MyName}
-\end{minipage}
-\begin{minipage}[t]{0.3\textwidth}
-  \begin{flushright}
-    Last updated: \monthyear\today
-  \end{flushright}
-\end{minipage}
-\\[-0.1cm]
+\\[0.3cm]
+% \textbf{Physician-scientist in-training}
+
+Post-Doctoral Research Fellow
+
+Department of Surgery and Orthopedic Surgery
+
+Rush University
+\end{center}
+% \\[-0.1cm]
 \rule{\textwidth}{2pt}
 \\[0.1cm]
+% \begin{minipage}[t]{0.7\textwidth}
+% {\fontsize{22pt}{0}\selectfont\MyName}
+% \end{minipage}
+% \begin{minipage}[t]{0.3\textwidth}
+%   \begin{flushright}
+%     Last updated: \monthyear\today
+%   \end{flushright}
+% \end{minipage}
 \begin{minipage}[t]{0.7\textwidth}
     ORCID: \href{https://orcid.org/\ORCID}{\ORCID}
     \\
@@ -242,7 +251,7 @@
   \textbf{BA in Biology}, Washington University in St. Louis, USA
   \\
   \Year{2009}  &
-  \textbf{EMT-B}, College of Dupage, USA
+  \textbf{EMT-B}, College of DuPage, USA
 \end{EntriesTable}
 
 
@@ -259,23 +268,15 @@
 %   \\
 %   \Duration{2021}{2022}  &
 %   \Appointment{Post-Doctoral Research Fellow}{Laboratory of Susan Chubinskaya}{\RUPEDS}{\RUSH, USA}
-
-
   \Duration{2021}{\Ongoing}  &
   \Appointment{Post-Doctoral Research Fellow}
   {Laboratory of Anna Spagnoli, {\RUORTHO}}
   {Laboratory of Alfonso Torquati, {\RUSURG}}
-  {Laboratory of Susan Chubinskaya, {\RUPEDS} (2021-2022)}
-  
+  {Laboratory of Susan Chubinskaya, {\RUPEDS} (2021-2022)}\newline
   {\RUSH, USA}
-
-
   \\
   \Duration{2021}{2021}  &
   \Appointment{Junior Resident - Non-Academic}{\SURGONC}{\KMC}{\MAHE, India}
-
-
-
 \end{EntriesTable}
 
 
@@ -306,6 +307,133 @@
 
 \end{EntriesTable}
 
+%----------------------------------------------------------------------------------------------
+\section{Medical Experience}
+%----------------------------------------------------------------------------------------------
+\subsection{MBBS Internship}
+
+
+\begin{minipage}[t]{1\textwidth}
+Role comparable to a US PGY-1 Transitional Year. Following the Final MBBS examinations, Indian doctors complete a “compulsory rotating internship”. Intern/house doctor in 11 departments, across primary, secondary, and tertiary care settings, treating patients speaking English, Hindi, and Kannada. Primary location: Kasturba Medical College, Manipal, KA, India
+\end{minipage}
+\\
+\\
+\begin{EntriesTable}
+  \Year{6 weeks} &
+  \Appointment{General Surgery}
+  {Kasturba Medical College, Manipal: Direct responsibility for ~ 10 in-patients on service, ER call, out-patient clinic services}
+  {Intra-operative: first or second assist in open and laparoscopic general surgical cases\newline Jackson Park Hospital, Chicago, IL (Abroad rotation, 4 weeks)}
+  \\
+  \Year{4 weeks} &
+  \Appointment{Orthopedic Surgery}
+  {In-patient management on the spine service, directly responsible for ~ 5-7 patients, trauma call, out-patient evaluation and follow-up}
+  {Second assistant in spine cases. First assist in trauma. Supervised with traction pinning.}
+  \\
+  \Year{6 weeks} &
+  \Appointment{Emergency Medicine (2 weeks mandated + 4 weeks additional elective)}
+  {Kasturba Medical College, Manipal: Level 1 trauma center. Lead physician for yellow and green zone. Assisted attendings with blue-zone critical, trauma, and ED-ICU patients}
+  {Jackson Park Hospital, Chicago, IL (Abroad rotation, additional 4 weeks)}
+  \\
+  \Year{8 weeks} &
+  \Appointment{Community Medicine (Preventative and Social Medicine)}
+  {Preventative and social medicine: community surveillance of HIV, leprosy, tuberculosis, complications from diabetes\newline Dr. TMA Pai Rotary Hospital, Karkala, KA (Remote rural secondary care hospital): in-patient, out-patient, and emergency department duty for pediatric, OB/Gyn, and adult emergent patients.}
+  {Rural Primary Healthcare Centers (PHC) in Udupi District, KA: out-patient clinic, managing ~5-10 adult patients per day in the capacity of a family medicine physician}
+  \\
+  \Year{8 weeks} &
+  \Appointment{Obstetrics and Gynecology}
+  {In-patient/out-patient management of ~5-15 patients directly in services, including high-risk pregnancy, fetal medicine, oncology. Intra-op first or second assistant}
+  {Labor Theater: conducted / assisted deliveries, monitored/augmented progress of labor\newline Manipal Artificial Reproductive Centre: evaluated for causes of infertility, assisted in management via ovulation induction, IUI, IVF}
+  \\
+  \Year{10 weeks} &
+  \Appointment{Internal Medicine (6 weeks mandated + 4 weeks additional research)}
+  {In-patient management of ~5-10 patients in ICU, step-down tele, and ward patients. Consult services and ER call duties. Out-patient adult clinic and university student clinic}
+  {COVID-19 research during non-clinical lockdown rotation}
+  \\
+  \Year{4 weeks} &
+  \Appointment{Psychiatry}
+  {Streamwood Behavioral Healthcare System, Streamwood, IL, USA (Abroad rotation):  In-patient child psychiatry, assisting attending with ~15-20 acute patients}
+  {Coordinated pharmacology, behavioral, family, and DCFS care}
+  \\
+  \Year{4 weeks} &
+  \Appointment{Pediatrics}
+  {In-patient management of ~15-20 patients directly. PICU and Peds ER call duty.}
+  {Out-patient evaluation, medication review, and vaccination}
+  \\
+  \Year{2 weeks} &
+  \Appointment{Ear, Nose, Throat – Head and Neck Surgery}
+  {In-patient and intra-operative management for ~ 5 patients, assisting residents}
+  {Outpatient clinic including diagnostic procedures EUM, VDL, audiometry}
+  \\
+  \Year{2 weeks} &
+  \Appointment{Ophthalmology}
+  {In-patient and intra-operative management for ~5 patients, assisting residents}
+  {Outpatient clinic, including assisting diagnostic and therapeutic procedures}
+  \\
+  \Year{2 weeks} &
+  \Appointment{Anesthesiology}
+  {Assisting residents and attendings with intra-operative management}
+  {Critical care work for ventilator dependent ICU patients}
+\end{EntriesTable}
+
+\subsection{Washington University Emergency Support Team (EST)}
+% 6515 Wydown Boulevard, Campus Box 3838, St. Louis, MO 63105
+
+\begin{EntriesTable}
+\Duration{2009}{2013} &
+\Appointment{Volunteer Emergency Medical Technician – Basic (EMT)}
+{EST responds to all EMS calls directed to the Washington University emergency dispatch center as the primary BLS team and provides large event stand-by coverage}
+{2800+ hours of experience, with 2100+ hours as a senior EMT}
+\\
+\Year{2013} &
+\Appointment{Field Director (Chief Medic)}
+{Responsible for the oversight of 57 EMTs, selection, training, quality assurance}
+{Coordinated with Medical Director (Alan Glass, MD) and Clayton Fire Department}
+\\
+\Duration{2011}{2012} &
+\Appointment{Assistant Field Director of New Medics}
+{Conducted internal training of first years\newline Coordinated with St. Louis Community College for EMT-B certification}
+{Created “The Move-Up Guide” e-book containing 28 Standard Operating Protocols, 75 practical scenario questions, training advice, and mock call preparation}
+\\
+\Duration{2011}{2012} &
+\Appointment{Disaster Committee Co-Head}
+{Planned and executed annual mass-casualty disaster drills}
+{Led meetings with university administration, police, and fire departments}
+\\
+\Duration{2010}{2011} &
+\Appointment{Public Relations Committee}	
+{Improved awareness of common on-campus illnesses, when/how to call EST}
+{Arranged First Aid/CPR classes for the St. Louis region}
+\\
+\Duration{2010}{2012} &
+\Appointment{Webmaster}
+{Helped develop and maintain est.wustl.edu using Drupal on an AMP stack}
+{}
+\end{EntriesTable}
+
+\subsection{US Clinical Experience}
+\begin{EntriesTable}
+
+\Year{Aug 2022} &
+\Twoline{Emergency Medicine Elective}
+{Jackson Park Hospital and Medical Center; Chicago, IL, USA}
+{}
+\\
+\Year{Jul 2022} &
+\Twoline{General Surgery Elective}
+{Jackson Park Hospital and Medical Center; Chicago, IL, USA}
+{}
+\\
+\Year{Feb-Mar 2022} &
+\Twoline{Child Psychiatry - In-patient}
+{Streamwood Behavioral Healthcare System; Streamwood, IL, USA}
+{}
+\\
+\Year{Jan 2017} &
+\Twoline{Neurosurgery Sub-Internship}
+{Pritzker School of Medicine, University of Chicago; Chicago, IL, USA}
+{}
+\end{EntriesTable}
+
 % %----------------------------------------------------------------------------------------------
 % \section{Publications}
 % %----------------------------------------------------------------------------------------------
@@ -323,9 +451,21 @@
 % %----------------------------------------------------------------------------------------------
 
 % %----------------------------------------------------------------------------------------------
-% \section{Teaching Experience}
+\section{Teaching Experience}
 % %----------------------------------------------------------------------------------------------
 
+
+
+\subsection{St. Louis Community College - Forest Park}
+
+% 5600 Oakland Ave, St. Louis, MO
+
+\begin{EntriesTable}
+\Duration{2010}{2013} &
+\Appointment{Adjunct Instructor - EMT-Basic Course}
+{Taught practical skills including ventilation, bleeding control, c-spine immobilization, extrication, cardiac arrest management, splinting}
+{Evaluated students in trauma/medical mock calls, per NREMT and Missouri standards}
+\end{EntriesTable}
 % %----------------------------------------------------------------------------------------------
 % \section{Research Experience}
 % %----------------------------------------------------------------------------------------------
@@ -357,6 +497,41 @@
 % %----------------------------------------------------------------------------------------------
 % \section{Professional Memberships}
 % %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+\section{Licensures and Certifications}
+% %----------------------------------------------------------------------------------------------
+
+\subsection{Licenses}
+\begin{EntriesTable}
+  \Duration{2020}{\Ongoing}  &
+  \textbf{Registered Medical Practitioner}, Karnataka, India
+  \\
+  \Duration{2018}{2020}  &
+  \textbf{Provisional Registration Certificate} - Karnataka, India
+  \\
+  \Duration{2009}{2013}  &
+  \textbf{EMT-Basic License} - Illinois and Missouri
+\end{EntriesTable}
+
+\subsection{Certifications}
+\begin{EntriesTable}
+  \Duration{2021}{2024}  &
+  \textbf{Biomedical Research} - CITI Program
+  \\
+  \Duration{2020}{2022}  &
+  \textbf{Advanced Cardiac Life Support} - American Heart Association
+  \\
+  \Duration{2020}{2022}  &
+  \textbf{Basic Life Support} - American Heart Association
+  \\
+  \Duration{2018}{\Ongoing}  &
+  \textbf{Basic Neonatal Resuscitation Program} - Indian Academy of Pediatrics
+  \\
+  \Duration{2009}{2012}  &
+  \textbf{EMT-Basic} - National Registry of Emergency Medical Technicians
+\end{EntriesTable}
+
 
 % %----------------------------------------------------------------------------------------------
 % \section{References}
