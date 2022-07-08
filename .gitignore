@@ -1,13 +1,25 @@
 *~
 .*.swp
 output/
-*.bbl
-*.toc
-*.aux
 *.blg
-*.log
-*.out
+
+
 *.pdf
 
-my_citations.bib
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+
+
+CV.bib
 leonardo_uieda_cv_summary.tex
