@@ -8,6 +8,7 @@ output/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
+*.bcf
 *.lof
 *.log
 *.lot
@@ -19,7 +20,8 @@ output/
 *.cb
 *.cb2
 .*.lb
-
+*.run.xml
+*.synctex.gz
 
 CV.bib
 leonardo_uieda_cv_summary.tex
