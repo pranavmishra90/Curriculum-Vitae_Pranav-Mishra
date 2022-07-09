@@ -38,10 +38,7 @@
   Cohn Research Building \\ 1735 W. Harrison St, Ste 563 \\ Chicago, IL 60612 \\ United States
 }
 
-% This section should be removed and the BibLaTex should be used instead
-%------------------------------------------------------------------------------
-% % Names for citing coauthors
-% \newcommand{\SomeName}{Last, FI MI}
+
 
 % Template configuration
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -68,7 +65,7 @@
 % Supress warnings for the box size 
 % (https://tex.stackexchange.com/questions/50830/do-i-have-to-care-about-bad-boxes/50850)
 \hbadness=99999
-\hfuzz=2pt
+\hfuzz=20pt
 
 % Define a new environment to place all CV entries in a 2-column table.
 % Left column are the dates, right column the entries.
@@ -191,6 +188,51 @@
   filecolor=black,
   urlcolor=MidnightBlue
 }
+
+% This section should be removed and the BibLaTex should be used instead
+%------------------------------------------------------------------------------
+% % Names for citing coauthors
+% \newcommand{\SomeName}{Last, FI MI}
+\usepackage[backend=biber, giveninits=true, style=authoryear, bibstyle=numeric, sorting=ydnt, maxbibnames=99, defernumbers=true]{biblatex}
+
+% \addbibresource{./Bioliography/CV.bib}
+
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage{listings}
+
+
+
+% \usepackage[backend=biber, bibstyle=publist, boldyear=false, sorting=ddt, plnumbered=reset, plauthorname=Mishra, plauthorfirstname='Pranav Kumar', ]{biblatex}
+
+% \plauthorname=[Pranav K.]{Mishra}
+% \plauthorname=[Pranav Kumar]{Mishra}
+
+
+
+\setlength\bibitemsep{\baselineskip}
+% \usepackage[backend=biber, %Use biber as a backend processor
+%   bibstyle=publist
+%   sorting=ydnt, %Sort by year (decending), 
+%   defernumbers=true, %
+%   maxbibnames=99%
+%   ]{biblatex}
+
+% plauthorhandling=highlight    highlight my name in the citation
+% plnumbered=reset              allow the numbers to reset for reach refsection
+% plauthorfirstinit=true        pass only the first initial as the first name
+
+
+
+\addbibresource{CV.bib}
+
+\defbibfilter{poster_presentation}{
+  keyword={Poster-Presentation}
+}
+\defbibfilter{oral_presentation}{ 
+  keyword={Oral-Presentation}
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypersetup{final}
 
@@ -260,14 +302,7 @@ Rush University
 %----------------------------------------------------------------------------------------------
 
 \begin{EntriesTable}
-%   \Duration{2022}{\Ongoing}  &
-%   \Appointment{Post-Doctoral Research Fellow}{Laboratory of Alfonso Torquati {\RUSURG}}{\RUSH, USA}
-%   \\
-%   \Duration{2021}{\Ongoing}  &
-%   \Appointment{Post-Doctoral Research Fellow}{Laboratory of Anna Spagnoli{\RUORTHO}}{\RUSH, USA}
-%   \\
-%   \Duration{2021}{2022}  &
-%   \Appointment{Post-Doctoral Research Fellow}{Laboratory of Susan Chubinskaya}{\RUPEDS}{\RUSH, USA}
+
   \Duration{2021}{\Ongoing}  &
   \Appointment{Post-Doctoral Research Fellow}
   {Laboratory of Anna Spagnoli, {\RUORTHO}}
@@ -435,8 +470,56 @@ Role comparable to a US PGY-1 Transitional Year. Following the Final MBBS examin
 \end{EntriesTable}
 
 % %----------------------------------------------------------------------------------------------
-% \section{Publications}
+\section{Publications}
 % %----------------------------------------------------------------------------------------------
+% \begin{EntriesTableExtra}
+%   \Year{2021}  &
+%     \Me.
+%     Harmonica and Boule: Modern Python tools for geophysical gravimetry,
+%     \emph{EGU 2021},
+%     Online.
+%     \DOI{10.5194/egusphere-egu21-8291}.
+%     &
+%     \GitHub{fatiando/egu2021}
+%     \\
+%   \Year{2020}  &
+%     \Me.
+%     Evaluating the accuracy of equivalent-source predictions using
+%     cross-validation,
+%     \emph{EGU 2020},
+%     Vienna, Austria.
+%     \DOI{10.5194/egusphere-egu2020-15729}.
+%     &
+%     \SlidesDOI{10.6084/m9.figshare.12245372}
+% \end{EntriesTableExtra}
+
+\subsection{Preprint Publications}
+\begin{refsection}
+% Include all of the citations from the bibliography file
+~\nocite{*}
+\printbibliography[heading=none, keyword={preprint}]
+\end{refsection}
+
+\subsection{Oral Presentations}
+\begin{refsection}
+% Include all of the citations from the bibliography file
+~\nocite{*}
+\printbibliography[heading=none, keyword={Oral-Presentation}]
+\end{refsection}
+
+\subsection{Poster Presentations}
+\begin{refsection}
+% Include all of the citations from the bibliography file
+~\nocite{*}
+\printbibliography[heading=none, keyword={Poster-Presentation}]
+\end{refsection}
+
+\subsection{Software}
+\begin{refsection}
+% Include all of the citations from the bibliography file
+~\nocite{*}
+\printbibliography[heading=none, keyword={Software}]
+\end{refsection}
 
 % %----------------------------------------------------------------------------------------------
 % \section{Invited Talks}
