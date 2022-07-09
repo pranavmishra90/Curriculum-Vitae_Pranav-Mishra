@@ -65,7 +65,7 @@
 % Supress warnings for the box size 
 % (https://tex.stackexchange.com/questions/50830/do-i-have-to-care-about-bad-boxes/50850)
 \hbadness=99999
-\hfuzz=2pt
+\hfuzz=20pt
 
 % Define a new environment to place all CV entries in a 2-column table.
 % Left column are the dates, right column the entries.
@@ -193,22 +193,44 @@
 %------------------------------------------------------------------------------
 % % Names for citing coauthors
 % \newcommand{\SomeName}{Last, FI MI}
-% \usepackage[style=authoryear, backend=biber]{biblatex}
+\usepackage[backend=biber, giveninits=true, style=authoryear, bibstyle=numeric, sorting=ydnt, maxbibnames=99, defernumbers=true]{biblatex}
 
 % \addbibresource{./Bioliography/CV.bib}
 
 \usepackage[american]{babel}
-\usepackage[sorting=ynt]{biblatex}
+\usepackage{csquotes}
+\usepackage{listings}
+
+
+
+% \usepackage[backend=biber, bibstyle=publist, boldyear=false, sorting=ddt, plnumbered=reset, plauthorname=Mishra, plauthorfirstname='Pranav Kumar', ]{biblatex}
+
+% \plauthorname=[Pranav K.]{Mishra}
+% \plauthorname=[Pranav Kumar]{Mishra}
+
+
+
+\setlength\bibitemsep{\baselineskip}
+% \usepackage[backend=biber, %Use biber as a backend processor
+%   bibstyle=publist
+%   sorting=ydnt, %Sort by year (decending), 
+%   defernumbers=true, %
+%   maxbibnames=99%
+%   ]{biblatex}
+
+% plauthorhandling=highlight    highlight my name in the citation
+% plnumbered=reset              allow the numbers to reset for reach refsection
+% plauthorfirstinit=true        pass only the first initial as the first name
+
+
+
 \addbibresource{CV.bib}
 
-\DeclareBibliographyCategory{oral_presentation}
-\DeclareBibliographyCategory{poster_presentation}
-
 \defbibfilter{poster_presentation}{
-  keyword=Poster-Presentation
+  keyword={Poster-Presentation}
 }
 \defbibfilter{oral_presentation}{ 
-  keyword=Oral-Presentation
+  keyword={Oral-Presentation}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -280,14 +302,7 @@ Rush University
 %----------------------------------------------------------------------------------------------
 
 \begin{EntriesTable}
-%   \Duration{2022}{\Ongoing}  &
-%   \Appointment{Post-Doctoral Research Fellow}{Laboratory of Alfonso Torquati {\RUSURG}}{\RUSH, USA}
-%   \\
-%   \Duration{2021}{\Ongoing}  &
-%   \Appointment{Post-Doctoral Research Fellow}{Laboratory of Anna Spagnoli{\RUORTHO}}{\RUSH, USA}
-%   \\
-%   \Duration{2021}{2022}  &
-%   \Appointment{Post-Doctoral Research Fellow}{Laboratory of Susan Chubinskaya}{\RUPEDS}{\RUSH, USA}
+
   \Duration{2021}{\Ongoing}  &
   \Appointment{Post-Doctoral Research Fellow}
   {Laboratory of Anna Spagnoli, {\RUORTHO}}
@@ -477,15 +492,34 @@ Role comparable to a US PGY-1 Transitional Year. Following the Final MBBS examin
 %     &
 %     \SlidesDOI{10.6084/m9.figshare.12245372}
 % \end{EntriesTableExtra}
-\cite{*}
+
+\subsection{Preprint Publications}
+\begin{refsection}
+% Include all of the citations from the bibliography file
+~\nocite{*}
+\printbibliography[heading=none, keyword={preprint}]
+\end{refsection}
 
 \subsection{Oral Presentations}
-\printbibliography[keyword={Oral-Presentation}]
+\begin{refsection}
+% Include all of the citations from the bibliography file
+~\nocite{*}
+\printbibliography[heading=none, keyword={Oral-Presentation}]
+\end{refsection}
 
 \subsection{Poster Presentations}
-\printbibliography[keyword={Poster-Presentation}]
+\begin{refsection}
+% Include all of the citations from the bibliography file
+~\nocite{*}
+\printbibliography[heading=none, keyword={Poster-Presentation}]
+\end{refsection}
 
-
+\subsection{Software}
+\begin{refsection}
+% Include all of the citations from the bibliography file
+~\nocite{*}
+\printbibliography[heading=none, keyword={Software}]
+\end{refsection}
 
 % %----------------------------------------------------------------------------------------------
 % \section{Invited Talks}
