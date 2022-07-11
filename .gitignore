@@ -25,5 +25,5 @@ output/
 *.synctex.gz
 *.synctex
 
-CV.bib
-leonardo_uieda_cv_summary.tex
+
+example.tex
