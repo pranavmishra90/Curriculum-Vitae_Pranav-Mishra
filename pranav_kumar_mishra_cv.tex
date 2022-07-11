@@ -42,7 +42,11 @@
 
 % Template configuration
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% \usepackage[american]{babel}
+% \usepackage[T30]{fontenc}
+\usepackage{csquotes}
+\usepackage{listings}
+\pretolerance=9999
 % Disable hyphenation
 \usepackage[none]{hyphenat}
 
@@ -53,6 +57,9 @@
 \usepackage[fixed]{fontawesome5}
 \usepackage{academicons}
 
+% URLS can line break
+\usepackage{xurl}
+
 % Template variables for styling
 \newcommand{\TablePad}{\vspace{-0.4cm}}
 \newcommand{\SoftwareTitle}[1]{{\bfseries #1}}
@@ -60,7 +67,7 @@
 
 % For fancy and multipage tables
 \usepackage{tabularx}
-\usepackage{ltablex}
+\usepackage{ltablex} %this package is not being used?
 
 % Supress warnings for the box size 
 % (https://tex.stackexchange.com/questions/50830/do-i-have-to-care-about-bad-boxes/50850)
@@ -78,7 +85,12 @@
 }
 \NewEnviron{EntriesTableExtra}{
 \TablePad
-\begin{tabularx}{\textwidth}{@{}p{0.10\textwidth}@{\hspace{0.02\textwidth}}p{0.79\textwidth}@{\hspace{0.02\textwidth}}>{\raggedright\arraybackslash}p{0.07\textwidth}}
+%Alignment
+% p = cell's top aligned to the center of the row
+% m = cell's middle aligned to the center of the row
+% b = cell's bottom aligned to the center of the row
+
+\begin{tabularx}{\textwidth}{@{}b{0.0\textwidth}@{\hspace{0.02\textwidth}}b{0.82\textwidth}@{\hspace{0.02\textwidth}}>{\raggedright\arraybackslash}p{0.06\textwidth}}
   \BODY
 \end{tabularx}
 }
@@ -86,12 +98,12 @@
 % Macros to add links and mark publications
 \newcommand{\DOI}[1]{doi:\href{https://doi.org/#1}{#1}}
 \newcommand{\DOILink}[1]{\href{https://doi.org/#1}{doi.org/#1}}
-\newcommand{\Website}[1]{\href{https://#1}{#1}}
+\newcommand{\Website}[1]{\href{#1}{#1}}
 \newcommand{\Preprint}[1]{\href{https://doi.org/#1}{\faFilePdf}}
 \newcommand{\Youtube}[1]{\href{https://www.youtube.com/watch?v=#1}{\faYoutube}}
 \newcommand{\GitHub}[1]{\href{https://github.com/#1}{\faGithub}}
 \newcommand{\Data}[1]{\href{https://doi.org/#1}{\faChartLine}}
-\newcommand{\Slides}[1]{\href{https://#1}{\faTv}}
+\newcommand{\Slides}[1]{\href{#1}{\faTv}}
 \newcommand{\SlidesDOI}[1]{\href{https://doi.org/#1}{\faTv}}
 \newcommand{\PosterDOI}[1]{\href{https://doi.org/#1}{\faImage}}
 \newcommand{\OA}{\thinspace\aiOpenAccess\enspace}
@@ -103,13 +115,14 @@
 \newcommand{\Future}{future}
 \newcommand{\Appointment}[4]{\textbf{#1}\newline  #2\newline  #3\newline  #4}
 \newcommand{\Twoline}[2]{\textbf{#1}\newline  #2}
+\newcommand{\Oneline}[1]{\textbf{#1}}
 
 % Define command to insert month name and year as date
 \usepackage{datetime}
 \newdateformat{monthyear}{\monthname[\THEMONTH], \THEYEAR}
 
 % Set the page margins
-\usepackage[a4paper,margin=1.5cm,includehead,headsep=5mm]{geometry}
+\usepackage[letterpaper,margin=1.5cm,includehead,headsep=5mm]{geometry}
 
 % To get the total page numbers (\pageref{LastPage})
 \usepackage{lastpage}
@@ -128,6 +141,9 @@
 
 % Use custom colors
 \usepackage[usenames,dvipsnames]{xcolor}
+
+
+
 
 % Set fonts (requires compilation with xelatex)
 \usepackage{fontspec}
@@ -191,47 +207,21 @@
 
 % This section should be removed and the BibLaTex should be used instead
 %------------------------------------------------------------------------------
-% % Names for citing coauthors
-% \newcommand{\SomeName}{Last, FI MI}
-\usepackage[backend=biber, giveninits=true, style=authoryear, bibstyle=numeric, sorting=ydnt, maxbibnames=99, defernumbers=true]{biblatex}
 
-% \addbibresource{./Bioliography/CV.bib}
+% Formatting for the references table style
+\newcommand{\ReferencesTable}{
+  \begin{tabularx}{\textwidth}{@{}b{0.00\textwidth}@{\hspace{0.02\textwidth}}p{0.85\textwidth}@{\hspace{0.02\textwidth}}>{\raggedright\arraybackslash}b{0.0\textwidth}}
+}
 
-\usepackage[american]{babel}
-\usepackage{csquotes}
-\usepackage{listings}
+%Biblatex style
+\newcommand*\publistbasestyle{nejm}
 
+% \usepackage[backend=biber, style=authoryear, sorting=ydnt, maxbibnames=99, defernumbers=true, giveninits=true]{biblatex}
+\usepackage[backend=biber, bibstyle=publist, plauthorhandling=highlight, plauthorname=Mishra, maxbibnames=99, plauthorfirstname=P, plauthorfirstinit=true, boldyear=false, marginyear=false]{biblatex}
 
-
-% \usepackage[backend=biber, bibstyle=publist, boldyear=false, sorting=ddt, plnumbered=reset, plauthorname=Mishra, plauthorfirstname='Pranav Kumar', ]{biblatex}
-
-% \plauthorname=[Pranav K.]{Mishra}
-% \plauthorname=[Pranav Kumar]{Mishra}
-
-
-
-\setlength\bibitemsep{\baselineskip}
-% \usepackage[backend=biber, %Use biber as a backend processor
-%   bibstyle=publist
-%   sorting=ydnt, %Sort by year (decending), 
-%   defernumbers=true, %
-%   maxbibnames=99%
-%   ]{biblatex}
-
-% plauthorhandling=highlight    highlight my name in the citation
-% plnumbered=reset              allow the numbers to reset for reach refsection
-% plauthorfirstinit=true        pass only the first initial as the first name
-
-
+\newrefcontext[sorting=ddnt]
 
 \addbibresource{CV.bib}
-
-\defbibfilter{poster_presentation}{
-  keyword={Poster-Presentation}
-}
-\defbibfilter{oral_presentation}{ 
-  keyword={Oral-Presentation}
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypersetup{final}
@@ -243,17 +233,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
-{\fontsize{12pt}{0}\selectfont Curriculum Vit\ae}
-\\[0.3cm]
-{\fontsize{22pt}{0}\selectfont\MyName}
-\\[0.3cm]
-% \textbf{Physician-scientist in-training}
+  {\fontsize{12pt}{0}\selectfont Curriculum Vit\ae}
+  \\[0.3cm]
+  {\fontsize{22pt}{0}\selectfont\MyName}
+  \\[0.3cm]
+  % \textbf{Physician-scientist in-training}
 
-Post-Doctoral Research Fellow
+  Post-Doctoral Research Fellow
 
-Department of Surgery and Orthopedic Surgery
+  Department of Surgery and Orthopedic Surgery
 
-Rush University
+  Rush University
 \end{center}
 % \\[-0.1cm]
 \rule{\textwidth}{2pt}
@@ -267,13 +257,13 @@ Rush University
 %   \end{flushright}
 % \end{minipage}
 \begin{minipage}[t]{0.7\textwidth}
-    ORCID: \href{https://orcid.org/\ORCID}{\ORCID}
-    \\
-    Email: \href{mailto:\Email}{\Email}
-    \\
-    % Research group: \Website{\LabWebsite} ----- Do not have research group website
-    % \\
-    Website: \Website{\PersonalWebsite}
+  ORCID: \href{https://orcid.org/\ORCID}{\ORCID}
+  \\
+  Email: \href{mailto:\Email}{\Email}
+  \\
+  % Research group: \Website{\LabWebsite} ----- Do not have research group website
+  % \\
+  Website: \Website{\PersonalWebsite}
 \end{minipage}
 \begin{minipage}[t]{0.3\textwidth}
   \begin{flushright}
@@ -314,33 +304,102 @@ Rush University
   \Appointment{Junior Resident - Non-Academic}{\SURGONC}{\KMC}{\MAHE, India}
 \end{EntriesTable}
 
+%----------------------------------------------------------------------------------------------
+\section{Awards and Honors}
+%----------------------------------------------------------------------------------------------
+\begin{EntriesTable}
+
+
+  \Year{2022} &
+  \Twoline{1st Place - Elevator Speech Finalists' Competition - Rush}
+  {Judges Award. Exploring novel hormones in the Bone-Fat-Insulin metabolism interface. Presented at the 2022 Rush University Trainee Research Day}
+  \\
+  \Year{2022} &
+  \Twoline{3rd Place - Elevator Speech Finalists' Competition - Rush}
+  {People's Choice Award. Exploring novel hormones in the Bone-Fat-Insulin metabolism interface. Presented at the 2022 Rush University Trainee Research Day}
+  \\
+  \Year{2020} &
+  \Twoline{3rd Place Oral Presentation – {AAPI}}
+  {A deductive approach to modeling the spread of COVID-19. Presented at American Association of Physicians of Indian Origins Virtual Summit 2020}
+  \\
+  \Duration{2013}{2018} &
+  \Twoline{First Class Honors at Kasturba Medical College, Manipal}
+  {Medicine (with Psychiatry), Surgery (with Orthopedics), Pediatrics, Pathology, Microbiology, Pharmacology, Physiology, and Biochemistry}
+  \\
+  \Year{2016} &
+  \Twoline{1st Place Oral Presentation - {AFMC}}
+  {Invasive Rhabdomyosarcoma of the Nasopharynx and Cranium in a 21-year-old male. Presented at Illuminati, Armed Forces Medical College, Pune, India.}
+
+\end{EntriesTable}
 
 %----------------------------------------------------------------------------------------------
-% \section{Awards and Honors}
-%----------------------------------------------------------------------------------------------
-
-
-%----------------------------------------------------------------------------------------------
-\section{Grants \& Fellowships}
+\section{Fellowships}
 %----------------------------------------------------------------------------------------------
 
 \begin{EntriesTable}
-
-  \Duration{2021}{2022}  &
-  \Appointment{DNA damage and cellular senescence in osteoarthritis pathophysiology}
-  {NIH: R01 AG044034/AG/NIA}
-  {PI: Richard F Loeser, Department of Medicine, University of North Carolina, Chapel Hill}
-  {Sub-contract: Susan Chubinskaya, {\RUPEDS}, {\RUSH}}
-  
-  {Role: Pranav Mishra, human tissue procurement, morphological assessment, and processing}
+  \Duration{2021}{\Ongoing} &
+  \Twoline{Rush Public Voices Fellowship}
+  {Full scholarship for the 40-member Rush cohort to the Op-Ed Project. \newline The program provides instruction and mentorship towards publishing op-ed articles with the media}
   \\
+
   \Duration{2009}{2009}  &
   \Appointment{Summer Undergraduate Research Fellowship}
   {PI: Igor Efimov, Department of Biomedical Engineering, {\WASHU}}
   {Funding: Howard Hughes Medical Institute and Imaging Sciences Pathways training grant}
   {Amount: \$ 3750}
-
 \end{EntriesTable}
+
+
+%----------------------------------------------------------------------------------------------
+\section{Postgraduate Training}
+%----------------------------------------------------------------------------------------------
+\subsection{Research}
+
+\begin{EntriesTable}
+  \Duration{2009}{2013} &
+  \Twoline{Project 1: Determine the mechanisms regulating the bone-fat-glucose interface}{
+    PI: Anna Spagnoli, MD (Orthopedic Surgery); Alfonso Torquati, MD, MSCI (Surgery)\newline
+    Understand the role of sclerostin to metabolic, endocrine, and musculoskeletal health through a comparison between obese and non-obese individuals\newline
+    Creation of a biorepository and experimentation with gastrointestinal, adipose, and blood samples from Roux-en-Y gastric bypass patients and non-obese cadavers\newline
+    Clinical research coordination: recruitment and monitoring of patients in the study\newline
+    Clinical and research database creation and maintenance
+  }
+  \\
+  \Duration{2021}{\Ongoing} &
+  \Twoline{Project 2: Role of IL-36RA in osteoarthritis and post-traumatic osteoarthritis}{
+    PI: Anna Spagnoli, MD (Orthopedic Surgery); Susan Chubinskaya, PhD (Pediatrics)\newline
+    Determine the role of IL-36RA in mitigating factors of osteoarthritis (OA) and post-traumatic osteoarthritis (PTOA)\newline
+    Examining the augmentation of molecular and histological characteristics of impacted articular cartilage with IL-36RA\newline
+    Impaction-Bioreactor-Indentation tribology experimental model for mitigating mechanical stress on traumatically damaged cartilage with IL-36RA
+
+  }
+  \\
+  \Duration{2021}{2022} &
+  \Twoline{Project 3: Human cartilage tissue repository}
+  {PI: Susan Chubinskaya, PhD (Pediatrics)
+  Intake and processing donated human cadaver specimens into the tissue repository\newline
+  Dissection of en-bloc human legs for knee and ankle joints experiments, including articular cartilage, synovium, and synovial fluid\newline
+  Grading degenerative morphological changes (DMC) to human articular cartilage\newline
+  Multivariate and machine-learning models for clinical factors leading to DMC \newline
+  National collaborations with tissue repository specimens\newline
+  }
+  \\
+  \end{EntriesTable}
+
+
+
+\subsection{Clinical}
+\begin{EntriesTable}
+
+  \Year{2021} &
+  \Twoline{Junior Resident (Non-Academic) – Surgical Oncology – KMC, Manipal}
+  {Appointment with Dr. Naveen Kumar, Head of Department, Surgical Oncology\newline
+  Intra-operative: first or second assist in open cases. Second assist in lap / VATS. ~9 major surgeries per week.\newline
+  In-patient pre-operative and post-operative management with ~15 patients on service\newline
+  }
+  \\
+\end{EntriesTable}
+
 
 %----------------------------------------------------------------------------------------------
 \section{Medical Experience}
@@ -349,7 +408,7 @@ Rush University
 
 
 \begin{minipage}[t]{1\textwidth}
-Role comparable to a US PGY-1 Transitional Year. Following the Final MBBS examinations, Indian doctors complete a “compulsory rotating internship”. Intern/house doctor in 11 departments, across primary, secondary, and tertiary care settings, treating patients speaking English, Hindi, and Kannada. Primary location: Kasturba Medical College, Manipal, KA, India
+  Role comparable to a US PGY-1 Transitional Year. Following the Final MBBS examinations, Indian doctors complete a “compulsory rotating internship”. Intern/house doctor in 11 departments, across primary, secondary, and tertiary care settings, treating patients speaking English, Hindi, and Kannada. Primary location: Kasturba Medical College, Manipal, KA, India
 \end{minipage}
 \\
 \\
@@ -414,111 +473,122 @@ Role comparable to a US PGY-1 Transitional Year. Following the Final MBBS examin
 % 6515 Wydown Boulevard, Campus Box 3838, St. Louis, MO 63105
 
 \begin{EntriesTable}
-\Duration{2009}{2013} &
-\Appointment{Volunteer Emergency Medical Technician – Basic (EMT)}
-{EST responds to all EMS calls directed to the Washington University emergency dispatch center as the primary BLS team and provides large event stand-by coverage}
-{2800+ hours of experience, with 2100+ hours as a senior EMT}
-\\
-\Year{2013} &
-\Appointment{Field Director (Chief Medic)}
-{Responsible for the oversight of 57 EMTs, selection, training, quality assurance}
-{Coordinated with Medical Director (Alan Glass, MD) and Clayton Fire Department}
-\\
-\Duration{2011}{2012} &
-\Appointment{Assistant Field Director of New Medics}
-{Conducted internal training of first years\newline Coordinated with St. Louis Community College for EMT-B certification}
-{Created “The Move-Up Guide” e-book containing 28 Standard Operating Protocols, 75 practical scenario questions, training advice, and mock call preparation}
-\\
-\Duration{2011}{2012} &
-\Appointment{Disaster Committee Co-Head}
-{Planned and executed annual mass-casualty disaster drills}
-{Led meetings with university administration, police, and fire departments}
-\\
-\Duration{2010}{2011} &
-\Appointment{Public Relations Committee}	
-{Improved awareness of common on-campus illnesses, when/how to call EST}
-{Arranged First Aid/CPR classes for the St. Louis region}
-\\
-\Duration{2010}{2012} &
-\Appointment{Webmaster}
-{Helped develop and maintain est.wustl.edu using Drupal on an AMP stack}
-{}
+  \Duration{2009}{2013} &
+  \Appointment{Volunteer Emergency Medical Technician – Basic (EMT)}
+  {EST responds to all EMS calls directed to the Washington University emergency dispatch center as the primary BLS team and provides large event stand-by coverage}
+  {2800+ hours of experience, with 2100+ hours as a senior EMT}
+  \\
+  \Year{2013} &
+  \Appointment{Field Director (Chief Medic)}
+  {Responsible for the oversight of 57 EMTs, selection, training, quality assurance}
+  {Coordinated with Medical Director (Alan Glass, MD) and Clayton Fire Department}
+  \\
+  \Duration{2011}{2012} &
+  \Appointment{Assistant Field Director of New Medics}
+  {Conducted internal training of first years\newline Coordinated with St. Louis Community College for EMT-B certification}
+  {Created “The Move-Up Guide” e-book containing 28 Standard Operating Protocols, 75 practical scenario questions, training advice, and mock call preparation}
+  \\
+  \Duration{2011}{2012} &
+  \Appointment{Disaster Committee Co-Head}
+  {Planned and executed annual mass-casualty disaster drills}
+  {Led meetings with university administration, police, and fire departments}
+  \\
+  \Duration{2010}{2011} &
+  \Appointment{Public Relations Committee}
+  {Improved awareness of common on-campus illnesses, when/how to call EST}
+  {Arranged First Aid/CPR classes for the St. Louis region}
+  \\
+  \Duration{2010}{2012} &
+  \Appointment{Webmaster}
+  {Helped develop and maintain est.wustl.edu using Drupal on an AMP stack}
+  {}
 \end{EntriesTable}
 
 \subsection{US Clinical Experience}
 \begin{EntriesTable}
 
-\Year{Aug 2022} &
-\Twoline{Emergency Medicine Elective}
-{Jackson Park Hospital and Medical Center; Chicago, IL, USA}
-{}
-\\
-\Year{Jul 2022} &
-\Twoline{General Surgery Elective}
-{Jackson Park Hospital and Medical Center; Chicago, IL, USA}
-{}
-\\
-\Year{Feb-Mar 2022} &
-\Twoline{Child Psychiatry - In-patient}
-{Streamwood Behavioral Healthcare System; Streamwood, IL, USA}
-{}
-\\
-\Year{Jan 2017} &
-\Twoline{Neurosurgery Sub-Internship}
-{Pritzker School of Medicine, University of Chicago; Chicago, IL, USA}
-{}
+  \Year{Aug 2022} &
+  \Twoline{Emergency Medicine Elective}
+  {Jackson Park Hospital and Medical Center; Chicago, IL, USA}
+  {}
+  \\
+  \Year{Jul 2022} &
+  \Twoline{General Surgery Elective}
+  {Jackson Park Hospital and Medical Center; Chicago, IL, USA}
+  {}
+  \\
+  \Year{Feb-Mar 2022} &
+  \Twoline{Child Psychiatry - In-patient}
+  {Streamwood Behavioral Healthcare System; Streamwood, IL, USA}
+  {}
+  \\
+  \Year{Jan 2017} &
+  \Twoline{Neurosurgery Sub-Internship}
+  {Pritzker School of Medicine, University of Chicago; Chicago, IL, USA}
+  {}
 \end{EntriesTable}
 
 % %----------------------------------------------------------------------------------------------
 \section{Publications}
 % %----------------------------------------------------------------------------------------------
-% \begin{EntriesTableExtra}
-%   \Year{2021}  &
-%     \Me.
-%     Harmonica and Boule: Modern Python tools for geophysical gravimetry,
-%     \emph{EGU 2021},
-%     Online.
-%     \DOI{10.5194/egusphere-egu21-8291}.
-%     &
-%     \GitHub{fatiando/egu2021}
-%     \\
-%   \Year{2020}  &
-%     \Me.
-%     Evaluating the accuracy of equivalent-source predictions using
-%     cross-validation,
-%     \emph{EGU 2020},
-%     Vienna, Austria.
-%     \DOI{10.5194/egusphere-egu2020-15729}.
-%     &
-%     \SlidesDOI{10.6084/m9.figshare.12245372}
-% \end{EntriesTableExtra}
-
-\subsection{Preprint Publications}
+\subsection{Pre-print}
 \begin{refsection}
-% Include all of the citations from the bibliography file
-~\nocite{*}
-\printbibliography[heading=none, keyword={preprint}]
+
+  % % Automatic generator - reads CV.bib---------------------------
+  % % Include all of the citations from the bibliography file
+  % ~\nocite{*}
+  % \printbibliography[heading=none, keyword={preprint}]
+  % % -------------------------------------------------------------
+
+  % Using Latex file for EntriesTableExtra formatting--------------
+  \input{Bibliography/preprint.tex}
+  %----------------------------------------------------------------
+
 \end{refsection}
 
 \subsection{Oral Presentations}
 \begin{refsection}
-% Include all of the citations from the bibliography file
-~\nocite{*}
-\printbibliography[heading=none, keyword={Oral-Presentation}]
+
+  % % Automatic generator - reads CV.bib----------------------------
+  % % Include all of the citations from the bibliography file
+  % ~\nocite{*}
+  % \printbibliography[heading=none, keyword={Oral-Presentation}]
+  % % --------------------------------------------------------------
+
+  % Using Latex file for EntriesTableExtra formatting--------------
+  \input{Bibliography/oral_presentations.tex}
+  %----------------------------------------------------------------
+
 \end{refsection}
 
 \subsection{Poster Presentations}
 \begin{refsection}
-% Include all of the citations from the bibliography file
-~\nocite{*}
-\printbibliography[heading=none, keyword={Poster-Presentation}]
+
+  % % Automatic generator - reads CV.bib----------------------------
+  % % Include all of the citations from the bibliography file
+  % ~\nocite{*}
+  % \printbibliography[heading=none, keyword={Poster-Presentation}]
+  % % --------------------------------------------------------------
+  
+  % Using Latex file for EntriesTableExtra formatting--------------
+  \input{Bibliography/poster_presentations.tex}
+  %----------------------------------------------------------------
+
 \end{refsection}
 
 \subsection{Software}
 \begin{refsection}
-% Include all of the citations from the bibliography file
-~\nocite{*}
-\printbibliography[heading=none, keyword={Software}]
+  % % Automatic generator - reads CV.bib----------------------------
+  % % Include all of the citations from the bibliography file
+  % ~\nocite{*}
+  % \printbibliography[heading=none, keyword={Software}]
+  % % --------------------------------------------------------------
+
+
+  % Using Latex file for EntriesTableExtra formatting--------------
+  \input{Bibliography/software.tex}
+  %----------------------------------------------------------------
+  
 \end{refsection}
 
 % %----------------------------------------------------------------------------------------------
@@ -544,10 +614,10 @@ Role comparable to a US PGY-1 Transitional Year. Following the Final MBBS examin
 % 5600 Oakland Ave, St. Louis, MO
 
 \begin{EntriesTable}
-\Duration{2010}{2013} &
-\Appointment{Adjunct Instructor - EMT-Basic Course}
-{Taught practical skills including ventilation, bleeding control, c-spine immobilization, extrication, cardiac arrest management, splinting}
-{Evaluated students in trauma/medical mock calls, per NREMT and Missouri standards}
+  \Duration{2010}{2013} &
+  \Appointment{Adjunct Instructor - EMT-Basic Course}
+  {Taught practical skills including ventilation, bleeding control, c-spine immobilization, extrication, cardiac arrest management, splinting}
+  {Evaluated students in trauma/medical mock calls, per NREMT and Missouri standards}
 \end{EntriesTable}
 % %----------------------------------------------------------------------------------------------
 % \section{Research Experience}
@@ -615,11 +685,58 @@ Role comparable to a US PGY-1 Transitional Year. Following the Final MBBS examin
   \textbf{EMT-Basic} - National Registry of Emergency Medical Technicians
 \end{EntriesTable}
 
+%----------------------------------------------------------------------------------------------
+\section{External Funding Sources}
+%----------------------------------------------------------------------------------------------
+\begin{EntriesTable}
+  \Duration{2021}{2022}  &
+  \Appointment{DNA damage and cellular senescence in osteoarthritis pathophysiology}
+  {NIH: R01 AG044034/AG/NIA}
+  {PI: Richard F Loeser, Department of Medicine, University of North Carolina, Chapel Hill}
+  {Sub-contract: Susan Chubinskaya, {\RUPEDS}, {\RUSH}}
+  {Role: Pranav Mishra, human tissue procurement, morphological assessment, and processing}
+  \\
+  \Duration{2009}{2009}  &
+  \Appointment{Summer Undergraduate Research Fellowship}
+  {PI: Igor Efimov, Department of Biomedical Engineering, {\WASHU}}
+  {Funding: Howard Hughes Medical Institute and Imaging Sciences Pathways training grant}
+  {Amount: \$ 3750}
+
+\end{EntriesTable}
 
 % %----------------------------------------------------------------------------------------------
-% \section{References}
+\section{References}
 % %----------------------------------------------------------------------------------------------
+\begin{refsection}
+  % Automatic generator - reads CV.bib----------------------------
+  % Include all of the citations from the bibliography file
+  ~\nocite{*}
+  \printbibliography[heading=none]
+  % --------------------------------------------------------------
 
+\end{refsection}
+
+% %----------------------------------------------------------------------------------------------
+\section{Glossary}
+% %----------------------------------------------------------------------------------------------
+These are the meanings of the symbols used throughout this document:
+\\
+\TablePad
+\begin{tabularx}{\textwidth}{@{}p{0.03\textwidth} p{0.97\textwidth}@{}}
+  \aiOpenAccess & Indicates that a publication is open-access
+  \\
+  \faGithub & Link to a code repository on GitHub
+  \\
+  \faFilePdf & Link to an open-access PDF, usually a preprint or postprint
+  \\
+  \faYoutube & Link to a video on YouTube
+  \\
+  \faChartLine & Link to a data archive
+  \\
+  \faTv & Link to presentation slides
+  \\
+  \faImage & Link to a poster
+\end{tabularx}
 
 %-----------------------------------------------------------------------------------------------
 \end{document}

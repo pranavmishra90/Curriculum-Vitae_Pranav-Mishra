@@ -5,6 +5,8 @@ output/
 
 
 *.pdf
+!pranav_kumar_mishra_cv.pdf
+*.docx
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
@@ -25,5 +27,5 @@ output/
 *.synctex.gz
 *.synctex
 
-CV.bib
-leonardo_uieda_cv_summary.tex
+
+example.tex
