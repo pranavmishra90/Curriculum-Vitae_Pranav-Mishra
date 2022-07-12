@@ -1,0 +1,172 @@
+{
+    "python.condaPath": "C:\\ProgramData\\Anaconda3\\Scripts\\conda-script.py",
+    "python.defaultInterpreterPath": "C:\\ProgramData\\Anaconda3\\python.exe",
+    "python.pythonPath": "C:\\ProgramData\\Anaconda3\\python.exe",
+    "python.terminal.activateEnvironment": true,
+    "latex-workshop.intellisense.biblatexJSON.replace": {},
+  
+    "latex-workshop.latex.tools": [
+    
+      {
+        "name": "xelatex",
+        "command": "xelatex",
+        "args": [
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "%DOC%"
+        ],
+  
+        "env": {
+          "TEXMFHOME": "C:/texlive/2022/bin/win32/latex"
+        }
+      },
+      {
+        "name": "biber",
+        "command": "biber",
+        "args": ["%DOCFILE%"]
+      },
+      {
+        "name": "bibtex",
+        "command": "bibtex",
+        "args": ["%DOCFILE%"]
+      },
+      {
+        "name": "latexmk",
+        "tools": ["latexmk"]
+      },
+      {
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "%DOC%"
+        ]
+      },
+      {
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "%DOC%"
+        ]
+      }
+    ],
+  
+    "latex-workshop.latex.recipes": [
+      // {
+      //     "name": "pdflatex -> bibtex -> pdflatex*2",
+      //     "tools": [
+      //         "pdflatex",
+      //         "bibtex",
+      //         "pdflatex",
+      //         "pdflatex"
+      //     ]
+      //     },
+      //     {
+      //     "name": "latexmk -> bibtex -> xelatex*2",
+      //     "tools": [
+      //         "latexmk",
+      //         "bibtex",
+      //         "xelatex",
+      //         "xelatex"
+      //     ]
+      //     },
+      // {
+      //     "name": "PDFLaTeX",
+      //     "tools": [
+      //     "pdflatex"
+      //     ]
+      //     },
+      {
+        "name": "xelatex -> biber -> xelatex*2",
+        "tools": ["xelatex", "biber", "xelatex", "xelatex"]
+      },
+      {
+        "name": "XeLaTeX",
+        "tools": ["xelatex"]
+      },
+      {
+        "name": "BibTeX",
+        "tools": ["bibtex"]
+      },
+  
+      {
+        "name": "bibtex -> xelatex",
+        "tools": ["bibtex", "xelatex"]
+      }
+    ],
+  
+    "latex-workshop.view.pdf.viewer": "tab",
+  
+    "editor.wordWrap": "on",
+    // "workbench.colorTheme": "One Dark Pro",
+    // "workbench.iconTheme": "material-icon-theme",
+    "window.zoomLevel": 0,
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.explorerKind": "external",
+    "terminal.external.windowsExec": "C:\\Program Files\\Git\\git-bash.exe",
+    "latex-workshop.intellisense.citation.backend": "biblatex",
+    "jupyter.askForKernelRestart": false,
+    "latex-workshop.latex.autoBuild.run": "onSave",
+  
+    "breadcrumbs.enabled": false,
+    "explorer.confirmDragAndDrop": false,
+    "files.associations": {
+      "*.label": "xml",
+      "*.tex": "latex"
+    },
+    "files.watcherExclude": {
+      "**/mariadb/data/log/**": true,
+      "**/matrix-js-echo-bot/**": true,
+      "**/sites/wordpress/html/wp-content/**": true,
+      "**/sites/wordpress/html/wp-includes/**": true,
+      "**/sites/wordpress/html/wp-includes/wp-admin**": true,
+      "**/statping/logs**": true,
+      "**/vscode/*/**": true,
+      "**/wiki/*/**": true,
+      "~/.*/**": true
+    },
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "git.ignoreMissingGitWarning": true,
+    "gitlens.advanced.messages": {
+      "suppressGitMissingWarning": true
+    },
+    "hediet.vscode-drawio.theme": "Kennedy",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "jupyter.changeDirOnImportExport": true,
+    "notebook.cellToolbarLocation": {
+      "default": "right",
+      "jupyter-notebook": "left"
+    },
+    "notebook.diff.ignoreMetadata": true,
+    "notebook.diff.ignoreOutputs": true,
+    "notebook.lineNumbers": "on",
+    "search.showLineNumbers": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "telemetry.enableTelemetry": false,
+    "terminal.integrated.automationShell.windows": "PowerShell",
+    "terminal.integrated.confirmOnExit": true,
+    "terminal.integrated.enableBell": true,
+    "terminal.integrated.inheritEnv": false,
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "update.mode": "manual",
+    "workbench.colorTheme": "Nord Native",
+    "workbench.editorAssociations": {
+      "*.ipynb": "jupyter-notebook"
+    },
+    "latex-workshop.latex.outDir": "%DIR%/PDF",
+    "latex-workshop.view.pdf.tab.editorGroup": "current",
+    "latex-workshop.view.pdf.zoom": "page-actual",
+    "explorer.confirmDelete": false
+  }
+  
