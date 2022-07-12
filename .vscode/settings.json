@@ -167,6 +167,16 @@
     "latex-workshop.latex.outDir": "%DIR%/PDF",
     "latex-workshop.view.pdf.tab.editorGroup": "current",
     "latex-workshop.view.pdf.zoom": "page-actual",
+    "latex-workshop.latex.clean.fileTypes": [ 
+      "*/*.aux", 
+      "*/*.bbl",
+      "*/*.bcf",
+      "*/*.blg",
+      "*/*.log",
+      "*/*.out", 
+      "*/*.run.xml",
+      "*/*.synctex.gz" 
+    ],
     "explorer.confirmDelete": false
   }
   
