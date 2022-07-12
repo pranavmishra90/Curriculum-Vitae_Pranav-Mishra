@@ -1,0 +1,270 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "makefile.extensionOutputFolder": "./.vscode"
+  },
+
+  "latex-workshop.intellisense.file.exclude": [
+    "**/*.aux",
+    "**/*.bbl",
+    "**/*.bcf",
+    "**/*.blg",
+    "**/*.idx",
+    "**/*.ind",
+    "**/*.lof",
+    "**/*.lot",
+    "**/*.out",
+    "**/*.toc",
+    "**/*.acn",
+    "**/*.acr",
+    "**/*.alg",
+    "**/*.glg",
+    "**/*.glo",
+    "**/*.gls",
+    "**/*.ist",
+    "**/*.fls",
+    "**/*.log",
+    "**/*.nav",
+    "**/*.snm",
+    "**/*.fdb_latexmk",
+    "**/*.synctex.gz",
+    "**/*.run.xml"
+  ],
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.snm",
+    "*.synctex(busy)",
+    "*.synctex.gz(busy)",
+    "*.nav",
+    "*.vrb"
+  ],
+  "latex-workshop.latex.clean.subfolder.enabled": true,
+  // Define which recipe is used by `latex-workshop.build#`. It also applies to auto build. Recipes are referred to by their names as defined in `#latex-workshop.latex.recipes`. Note there are two particular values:
+  // - `first` means to use the first recipe in `latex-workshop.latex.recipes`;
+  // - `lastUsed` means to use the last run recipe.
+  "latex-workshop.latex.recipe.default": "first",
+
+  // Define LaTeX compiling recipes. Each recipe in the list is an object containing its name and the names of tools to be used sequentially, which are defined in `latex-workshop.latex.tools`. By default, the first recipe is used to compile the project. For details, please visit https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile#latex-recipes.
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk 🔃",
+      "tools": ["latexmk"]
+    },
+    {
+      "name": "latexmk (latexmkrc)",
+      "tools": ["latexmk_rconly"]
+    },
+    {
+      "name": "latexmk (lualatex)",
+      "tools": ["lualatexmk"]
+    },
+    {
+      "name": "latexmk (xelatex)",
+      "tools": ["xelatexmk"]
+    },
+    {
+      "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+      "tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
+    },
+    {
+      "name": "Compile Rnw files",
+      "tools": ["rnw2tex", "latexmk"]
+    },
+    {
+      "name": "Compile Jnw files",
+      "tools": ["jnw2tex", "latexmk"]
+    },
+    {
+      "name": "tectonic",
+      "tools": ["tectonic"]
+    }
+  ],
+
+  // When the `subfile` package is used, either the main file or any subfile containing `\documentclass[main.tex]{subfile}` can be LaTeXing. When `false`, the `build` and `view` commands  ask the user's choice first. When `true`, the subfile is used when `latex-workshop.latex.rootFile.useSubFile` is also `true`, otherwise the rootFile is used.
+  "latex-workshop.latex.rootFile.doNotPrompt": false,
+
+  // When the `subfile` package is used, either the main file or any subfile containing `\documentclass[main.tex]{subfile}` can be LaTeXing. When `true`, the extension uses the subfile as the rootFile for the `autobuild`, `clean` and `synctex` commands.
+  "latex-workshop.latex.rootFile.useSubFile": true,
+
+  // Patterns of files to exclude from the root detection mechanism. See also `latex-workshop.latex.search.rootFiles.include`. For more details, see the https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile#multi-file-projects.
+  "latex-workshop.latex.search.rootFiles.exclude": [],
+
+  // Patterns of files to consider for the root detection mechanism. Relative paths are computed from the workspace folder. To detect the root file and the tex file tree, we parse all the `.tex` listed here. If you want to specify all `.tex` files inside directory, say `foo`, and all its subdirectories recursively, you need to use `**/foo/**/*.tex`. If you only want to match `.tex` files at the top level of the workspace, use `*.tex`. For more details, see https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile#multi-file-projects
+  "latex-workshop.latex.search.rootFiles.include": [
+    "**/*.tex",
+    "**/*.rnw",
+    "**/*.Rnw"
+  ],
+
+  // List of directories where to look for extra input `.tex` files.
+  // Absolute paths are required. You may also need to set the environment variable `TEXINPUTS` properly for the LaTeX compiler to find the `.tex` files, see the `env` parameter of [recipes](https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile#latex-recipes).
+  "latex-workshop.latex.texDirs": [],
+
+  // Define LaTeX compiling tools to be used in recipes. Each tool is labeled by its `name`. When invoked, `command` is spawned with arguments defined in `args` and environment variables defined in `env`. Typically no spaces should appear in each argument unless in paths. List of available placeholders: `%DOC%`, `%DOC_W32%, %DOC_EXT%`, `%DOC_EXT_W32%`, `%DOCFILE%`, `%DOCFILE_EXT%`, `%DIR%`, `%DIR_W32%`, `%TMPDIR%` and `%OUTDIR%`, `%OUTDIR_W32%`. For more details, please visit https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile#placeholders.
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "lualatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-lualatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "xelatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-xelatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "latexmk_rconly",
+      "command": "latexmk",
+      "args": ["%DOC%"],
+      "env": {}
+    },
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": ["%DOCFILE%"],
+      "env": {}
+    },
+    {
+      "name": "rnw2tex",
+      "command": "Rscript",
+      "args": [
+        "-e",
+        "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
+      ],
+      "env": {}
+    },
+    {
+      "name": "jnw2tex",
+      "command": "julia",
+      "args": ["-e", "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"],
+      "env": {}
+    },
+    {
+      "name": "jnw2texmintex",
+      "command": "julia",
+      "args": [
+        "-e",
+        "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"
+      ],
+      "env": {}
+    },
+    {
+      "name": "tectonic",
+      "command": "tectonic",
+      "args": ["--synctex", "--keep-logs", "%DOC%.tex"],
+      "env": {}
+    }
+  ],
+
+  // Files to ignore from the watching mechanism used for triggering autobuild. This property must be an array of glob patterns. The patterns are matched against the absolute file path. To ignore everything inside the `texmf` tree, `**/texmf/**` can be used.
+  "latex-workshop.latex.watch.files.ignore": [
+    "**/*.bbx",
+    "**/*.bbl",
+    "**/*.cbx",
+    "**/*.cfg",
+    "**/*.clo",
+    "**/*.cnf",
+    "**/*.def",
+    "**/*.dfu",
+    "**/*.enc",
+    "**/*.fd",
+    "**/*.fmt",
+    "**/*.lbx",
+    "**/*.map",
+    "**/*.mkii",
+    "**/*.pfb",
+    "**/*.tfm",
+    "**/*.vf",
+    "**/*.code.tex",
+    "**/*.sty",
+    "**/texmf-{dist,var}/**",
+    "**/Local/MiKTeX/**",
+    "**/Local/Programs/MiKTeX/**",
+    "**/Roaming/MiKTeX/**",
+    "**/Program*/MiKTeX*/**",
+    "**/.miktex/texmfs/**",
+    "/var/cache/miktex-texmf/**",
+    "/usr/local/share/miktex-texmf/**",
+    "**/Library/Application Support/MiKTeX/texmfs/**",
+    "/dev/null"
+  ],
+
+  // Interval of polling, in milliseconds. Reload vscode to make any change in this configuration effective.
+  "latex-workshop.latex.watch.interval": 300,
+
+  // When set to true, polling is used to watch changes on files. When TeX files are placed on network drives or OneDrive, this option should be turned on. Setting this option to true might lead to high CPU utilization. Reload vscode to make any change in this configuration effective.
+  "latex-workshop.latex.watch.usePolling": false,
+
+  // Define the command line arguments for latexindent. In the addition to the placeholders defined at https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile#placeholders, the following placeholders are accepted
+  // - %TMPFILE%: The full path of the raw TeX file to be formatted. At this moment you need to use it as an input file of `latexindent`.
+  // - %INDENT%: The indent character of the file, typically `	`, `' '`, `' '`.
+  //
+  // Note that the option `-c` requires a trailing slash.
+  "latex-workshop.latexindent.args": [
+    "-c",
+    "%DIR%/",
+    "%TMPFILE%",
+    "-y=defaultIndent: '%INDENT%'"
+  ]
+}

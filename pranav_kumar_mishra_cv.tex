@@ -100,6 +100,7 @@
 \newcommand{\DOILink}[1]{\href{https://doi.org/#1}{doi.org/#1}}
 \newcommand{\Website}[1]{\href{#1}{#1}}
 \newcommand{\Preprint}[1]{\href{https://doi.org/#1}{\faFilePdf}}
+\newcommand{\Abstract}[1]{\href{#1}{\faFilePdf}}
 \newcommand{\Youtube}[1]{\href{https://www.youtube.com/watch?v=#1}{\faYoutube}}
 \newcommand{\GitHub}[1]{\href{https://github.com/#1}{\faGithub}}
 \newcommand{\Data}[1]{\href{https://doi.org/#1}{\faChartLine}}
@@ -217,7 +218,7 @@
 \newcommand*\publistbasestyle{nejm}
 
 % \usepackage[backend=biber, style=authoryear, sorting=ydnt, maxbibnames=99, defernumbers=true, giveninits=true]{biblatex}
-\usepackage[backend=biber, bibstyle=publist, plauthorhandling=highlight, plauthorname=Mishra, maxbibnames=99, plauthorfirstname=P, plauthorfirstinit=true, boldyear=false, marginyear=false]{biblatex}
+\usepackage[backend=biber, bibstyle=publist, plauthorhandling=highlight, plauthorname=Mishra, maxbibnames=99, plauthorfirstname=P, plauthorfirstinit=true, boldyear=false, marginyear=false, sorting=ydnt, plnumbered=reset, giveninits=true]{biblatex}
 
 \newrefcontext[sorting=ddnt]
 
@@ -532,6 +533,7 @@
 \section{Publications}
 % %----------------------------------------------------------------------------------------------
 \subsection{Pre-print}
+\TablePad
 \begin{refsection}
 
   % % Automatic generator - reads CV.bib---------------------------
@@ -547,6 +549,7 @@
 \end{refsection}
 
 \subsection{Oral Presentations}
+\TablePad
 \begin{refsection}
 
   % % Automatic generator - reads CV.bib----------------------------
@@ -562,6 +565,7 @@
 \end{refsection}
 
 \subsection{Poster Presentations}
+\TablePad
 \begin{refsection}
 
   % % Automatic generator - reads CV.bib----------------------------
@@ -577,7 +581,9 @@
 \end{refsection}
 
 \subsection{Software}
+\TablePad
 \begin{refsection}
+
   % % Automatic generator - reads CV.bib----------------------------
   % % Include all of the citations from the bibliography file
   % ~\nocite{*}
@@ -650,6 +656,21 @@
 % %----------------------------------------------------------------------------------------------
 % \section{Professional Memberships}
 % %----------------------------------------------------------------------------------------------
+
+% %----------------------------------------------------------------------------------------------
+\section{Patents and Trademarks}
+% %----------------------------------------------------------------------------------------------
+
+\subsection{Trademarks (India)}
+\begin{EntriesTable}
+  \Year{4979064}  &
+  Balakrishnan P, \Me. PREPAREDx. 2021;(Class 42).
+  \\
+  \Year{4979063}  &
+  Balakrishnan P, \Me. PREPAREDx. 2021;(Class 9).
+  \\
+
+\end{EntriesTable}
 
 % %----------------------------------------------------------------------------------------------
 \section{Licensures and Certifications}
