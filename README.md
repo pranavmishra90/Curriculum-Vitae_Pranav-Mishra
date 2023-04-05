@@ -1,11 +1,11 @@
 # Curriculum Vitae
 
-[![compile-pdf](https://github.com/leouieda/cv/workflows/compile-pdf/badge.svg?event=push)](https://github.com/leouieda/cv/actions)
+[![compile-pdf](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions/workflows/compile-pdf/badge.svg?event=push)](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions)
 
-These are the Latex sources for my academic CV.
+These are the [Latex](./pranav_kumar_mishra_cv.tex) sources for my academic CV. It automatically pulls from .tex files in the [/Bibliography](./Bibliography/) directory. Alternatively, it can source all types of citations using the keyword filter in the [cv.bib](./CV.bib).
 
 **Download** the latest compiled PDF:
-[pranav_kumar_mishra_cv.pdf](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/blob/main/pranav_kumar_mishra_cv.pdf)
+[pranav_kumar_mishra_cv.pdf](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/blob/main/output/pranav_kumar_mishra_cv.pdf)
 
 ## Template
 
