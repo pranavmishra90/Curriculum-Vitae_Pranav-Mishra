@@ -123,6 +123,7 @@
 % Define command to insert month name and year as date
 \usepackage{datetime}
 \newdateformat{monthyear}{\monthname[\THEMONTH], \THEYEAR}
+\newdateformat{iso}{twodigit{\THEDAY}-\twodigit{\THEMONTH}-\THEYEAR}
 
 % Set the page margins
 \usepackage[letterpaper,margin=1.5cm,includehead,headsep=5mm]{geometry}
@@ -186,7 +187,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{\fontsize{9pt}{10pt}\selectfont
-  \monthyear\today
+  \text Updated: \iso\today
 }
 \chead{
   \fontsize{9pt}{10pt}\selectfont
@@ -256,7 +257,7 @@
 % \end{minipage}
 % \begin{minipage}[t]{0.3\textwidth}
 %   \begin{flushright}
-%     Last updated: \monthyear\today
+%     Last updated: \iso\today
 %   \end{flushright}
 % \end{minipage}
 \begin{minipage}[t]{0.7\textwidth}

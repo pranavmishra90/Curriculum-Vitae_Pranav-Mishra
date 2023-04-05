@@ -5,32 +5,12 @@
 These are the Latex sources for my academic CV.
 
 **Download** the latest compiled PDF:
-[leonardo_uieda_cv.pdf](https://www.leouieda.com/cv/leonardo_uieda_cv.pdf)
+[pranav_kumar_mishra_cv.pdf](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/blob/main/pranav_kumar_mishra_cv.pdf)
 
 ## Template
 
 You're free to reuse and modify this template under the terms of the BSD
-3-clause License (see `LICENSE.txt`).
-
-To use it:
-
-* Click on the ["Use this template"](https://github.com/leouieda/cv/generate)
-  button to grab a copy of the repository.
-* Install Tectonic, either from their website or using the conda
-  `environment.yml` file provided in the repository.
-* Rename `leonardo_uieda_cv.tex`.
-* Fill out the variables and fields in the `.tex` file.
-* Compile the PDF to check the results with `make show`.
-* Push your changes and GitHub Actions should do it's magic and serve the PDF
-  at `https://YOURUSERNAME.github.io/cv/YOURNAME_cv.pdf`.
-
-### About
-
-I decided to make my own template after using `moderncv` for a while.
-I wanted a cleaner look and something that is more unique (as much as an academic
-CV can be).
-It was also a chance for me to learn some LaTeX templating (and procrastihack a
-little).
+3-clause License (see `LICENSE.md`). Significant credit goes to [Leonardo Uieda](https://github.com/leouieda) who created the original [repository](https://github.com/leouieda/cv). This repository is a modification on his work for content and style.
 
 ## Building
 
@@ -56,4 +36,4 @@ This way, the compiled PDF is updated and served automatically.
 ## License
 
 All LaTeX template source code is distributed under the
-[BSD 3-clause License](https://opensource.org/licenses/BSD-3-Clause).
+[BSD 3-clause License](https://opensource.org/licenses/BSD-3-Clause). See [License](./LICENSE.md) for more information.
