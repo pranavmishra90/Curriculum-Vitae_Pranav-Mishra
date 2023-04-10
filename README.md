@@ -1,6 +1,6 @@
 # Curriculum Vitae
 
-[![compile-pdf](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions/workflows/Build-LaTex-Document/badge.svg?event=push)](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions)
+[![Build-LaTex-Document](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions/workflows/Build-LaTex-Document/badge.svg?event=push)](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions)
 
 These are the [Latex](./pranav_kumar_mishra_cv.tex) sources for my academic CV. It automatically pulls from .tex files in the [/Bibliography](./Bibliography/) directory. Alternatively, it can source all types of citations using the keyword filter in the [cv.bib](./CV.bib).
 

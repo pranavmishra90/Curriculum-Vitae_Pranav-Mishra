@@ -1,6 +1,9 @@
 name: 'Build-LaTex-Document'
 on:
   push:
+    branches:
+      - main
+      - draft
 jobs:
   build:
     runs-on: ubuntu-latest
