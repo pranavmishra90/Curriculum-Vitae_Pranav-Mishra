@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Install biber
+        run:  sudo apt-get -y install biber 
       - uses: actions/cache@v3
         name: Tectonic Cache
         with:
@@ -18,7 +20,6 @@ jobs:
       - uses: wtfjoke/setup-tectonic@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          biber-version: 2.17
       - run: biber --version
       - name: Run Tectonic + Biber
         run: tectonic pranav_kumar_mishra_cv.tex
