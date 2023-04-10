@@ -1,22 +1,22 @@
-on:
-  push:
-    branches:
-      - main
-      - draft
-
+name: Build LaTeX document
+on: [push]
 jobs:
-  latex-job:
+  build_latex:
     runs-on: ubuntu-latest
-    name: A job to Compile Latex file
     steps:
-    - uses: actions/checkout@v1
-    - name: Compilation
-      uses: vinay0410/tectonic-action@master
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tex_path: './pranav_kumar_mishra_cv.tex'
-        push: 'yes'
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: pranav_kumar_mishra_cv.tex
+          extra_fonts: |
+            ./fonts/notoserif/*.ttf
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: PDF
+          path: pranav_kumar_mishra_cv.pdf
 
 # name: 'Build LaTex Document with Biber'
 # on:
