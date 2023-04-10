@@ -24,7 +24,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - run: biber --version
       - name: Run Tectonic + Biber
-        run: tectonic pranav_kumar_mishra_cv.tex --outdir ./output --keep-logs
+        run: tectonic pranav_kumar_mishra_cv.tex --keep-logs
       - name: Upload pdf
         uses: actions/upload-artifact@v3
         with:
