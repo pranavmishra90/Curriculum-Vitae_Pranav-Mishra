@@ -1,10 +1,9 @@
-name: 'Build LaTex Document with Biber'
+name: 'Build-LaTex-Document'
 on:
   push:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
