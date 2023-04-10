@@ -1,31 +1,51 @@
-name: 'Build LaTex Document with Biber'
 on:
   push:
-jobs:
-  build:
-    runs-on: ubuntu-latest
+    branches:
+      - main
+      - draft
 
+jobs:
+  latex-job:
+    runs-on: ubuntu-latest
+    name: A job to Compile Latex file
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      # - uses: actions/cache@v3
-      #   name: Tectonic Cache
-      #   with:
-      #     path: ~/.cache/Tectonic
-      #     key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-tectonic-
-      - uses: wtfjoke/setup-tectonic@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          biber-version: 'latest'
-      - name: Run Tectonic + Biber
-        run: tectonic pranav_kumar_mishra_cv.tex
-      - name: Upload pdf
-        uses: actions/upload-artifact@v3
-        with:
-          name: pranav_kumar_mishra_cv
-          path: pranav_kumar_mishra_cv.pdf
+    - uses: actions/checkout@v1
+    - name: Compilation
+      uses: vinay0410/tectonic-action@master
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tex_path: './pranav_kumar_mishra_cv.tex'
+        push: 'yes'
+
+# name: 'Build LaTex Document with Biber'
+# on:
+#   push:
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3
+#       # - uses: actions/cache@v3
+#       #   name: Tectonic Cache
+#       #   with:
+#       #     path: ~/.cache/Tectonic
+#       #     key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
+#       #     restore-keys: |
+#       #       ${{ runner.os }}-tectonic-
+#       - uses: wtfjoke/setup-tectonic@v2
+#         with:
+#           github-token: ${{ secrets.GITHUB_TOKEN }}
+#           biber-version: 'latest'
+#       - name: Run Tectonic + Biber
+#         run: tectonic pranav_kumar_mishra_cv.tex
+#       - name: Upload pdf
+#         uses: actions/upload-artifact@v3
+#         with:
+#           name: pranav_kumar_mishra_cv
+#           path: pranav_kumar_mishra_cv.pdf
 
 # name: compile-pdf
 
