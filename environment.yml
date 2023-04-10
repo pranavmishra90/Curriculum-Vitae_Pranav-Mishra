@@ -4,5 +4,5 @@ channels:
   - malramsay
 dependencies:
   - python==3.10
-  - tectonic==0.12.0
-  - biber==2.14
+  - tectonic
+  - biber
