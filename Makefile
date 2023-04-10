@@ -9,7 +9,7 @@ PDF = $(patsubst %.tex,%.pdf,$(TEX))
 all: $(PDF)
 
 %.pdf: %.tex
-	tectonic -X compile $<
+	tectonic -X compile -Z continue-on-errors $<
 
 clean:
 	rm -f $(PDF)
