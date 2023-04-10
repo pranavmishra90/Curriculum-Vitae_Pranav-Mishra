@@ -123,7 +123,7 @@
 % Define command to insert month name and year as date
 \usepackage{datetime}
 \newdateformat{monthyear}{\monthname[\THEMONTH], \THEYEAR}
-\newdateformat{iso}{twodigit{\THEDAY}-\twodigit{\THEMONTH}-\THEYEAR}
+\newdateformat{isodate}{\THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}}
 
 % Set the page margins
 \usepackage[letterpaper,margin=1.5cm,includehead,headsep=5mm]{geometry}
@@ -186,16 +186,16 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\fontsize{9pt}{10pt}\selectfont
-  \text Updated: \iso\today
+\lfoot{\fontsize{8pt}{8pt}\selectfont
+  \isodate \today
 }
-\chead{
-  \fontsize{9pt}{10pt}\selectfont
+\cfoot{
+  \fontsize{8pt}{8pt}\selectfont
   \MyName
   \hspace{0.2cm} -- \hspace{0.2cm}
   \Title
 }
-\rhead{\fontsize{9pt}{10pt}\selectfont \thepage{} of \pageref*{LastPage}}
+\rfoot{\fontsize{8pt}{8pt}\selectfont \thepage{} of \pageref*{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
 
 % Metadata for the PDF output and control of hyperlinks
@@ -245,21 +245,13 @@
 
   Post-Doctoral Research Fellow
 
-  Department of Surgery and Orthopedic Surgery
+  Departments of Surgery and Orthopedic Surgery
 
   Rush University
 \end{center}
 % \\[-0.1cm]
 \rule{\textwidth}{2pt}
-\\[0.1cm]
-% \begin{minipage}[t]{0.7\textwidth}
-% {\fontsize{22pt}{0}\selectfont\MyName}
-% \end{minipage}
-% \begin{minipage}[t]{0.3\textwidth}
-%   \begin{flushright}
-%     Last updated: \iso\today
-%   \end{flushright}
-% \end{minipage}
+
 \begin{minipage}[t]{0.7\textwidth}
   ORCID: \href{https://orcid.org/\ORCID}{\ORCID}
   \\
@@ -274,6 +266,13 @@
 \begin{minipage}[t]{0.3\textwidth}
   \begin{flushright}
     \Address
+  \end{flushright}
+\end{minipage}
+\\[0.1cm]
+\\
+\begin{minipage}[t]{\textwidth}
+  \begin{flushright}
+    CV updated: \isodate \today
   \end{flushright}
 \end{minipage}
 
@@ -540,15 +539,15 @@
 \TablePad
 \begin{refsection}
 
-  % % Automatic generator - reads CV.bib---------------------------
-  % % Include all of the citations from the bibliography file
-  % ~\nocite{*}
-  % \printbibliography[heading=none, keyword={preprint}]
-  % % -------------------------------------------------------------
+  % Automatic generator - reads CV.bib---------------------------
+  % Include all of the citations from the bibliography file
+  ~\nocite{*}
+  \printbibliography[heading=none, keyword={preprint}]
+  % -------------------------------------------------------------
 
-  % Using Latex file for EntriesTableExtra formatting--------------
-  \input{Bibliography/preprint.tex}
-  %----------------------------------------------------------------
+  % % Using Latex file for EntriesTableExtra formatting--------------
+  % \input{Bibliography/preprint.tex}
+  % %----------------------------------------------------------------
 
 \end{refsection}
 
@@ -556,15 +555,15 @@
 \TablePad
 \begin{refsection}
 
-  % % Automatic generator - reads CV.bib----------------------------
-  % % Include all of the citations from the bibliography file
-  % ~\nocite{*}
-  % \printbibliography[heading=none, keyword={Oral-Presentation}]
-  % % --------------------------------------------------------------
+  % Automatic generator - reads CV.bib----------------------------
+  % Include all of the citations from the bibliography file
+  ~\nocite{*}
+  \printbibliography[heading=none, keyword={Oral-Presentation}]
+  % --------------------------------------------------------------
 
-  % Using Latex file for EntriesTableExtra formatting--------------
-  \input{Bibliography/oral_presentations.tex}
-  %----------------------------------------------------------------
+  % % Using Latex file for EntriesTableExtra formatting--------------
+  % \input{Bibliography/oral_presentations.tex}
+  % %----------------------------------------------------------------
 
 \end{refsection}
 
@@ -572,15 +571,15 @@
 \TablePad
 \begin{refsection}
 
-  % % Automatic generator - reads CV.bib----------------------------
-  % % Include all of the citations from the bibliography file
-  % ~\nocite{*}
-  % \printbibliography[heading=none, keyword={Poster-Presentation}]
-  % % --------------------------------------------------------------
+  % Automatic generator - reads CV.bib----------------------------
+  % Include all of the citations from the bibliography file
+  ~\nocite{*}
+  \printbibliography[heading=none, keyword={Poster-Presentation}]
+  % --------------------------------------------------------------
 
-  % Using Latex file for EntriesTableExtra formatting--------------
-  \input{Bibliography/poster_presentations.tex}
-  %----------------------------------------------------------------
+  % % Using Latex file for EntriesTableExtra formatting--------------
+  % \input{Bibliography/poster_presentations.tex}
+  % %----------------------------------------------------------------
 
 \end{refsection}
 
@@ -616,10 +615,10 @@
 \begin{EntriesTable}
 
 
-  \Year{2022} &
+  \Year{2022, 2023} &
   \Oneline{Rush University Trainee Research Day}
   \\
-  \Year{2021} &
+  \Year{2021, 2022} &
   \Oneline{Rush Research Symposium}
   \\
   \Year{2020} &
@@ -962,25 +961,32 @@
 
 % The MIT License (MIT)
 
-% Copyright (c) 2022 Pranav Kumar Mishra
+% Copyright (c) 2022-2023 Pranav Kumar Mishra
+% All rights reserved.
 
-% Permission is hereby granted, free of charge, to any person obtaining a copy
-% of this software and associated documentation files (the "Software"), to deal
-% in the Software without restriction, including without limitation the rights
-% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-% copies of the Software, and to permit persons to whom the Software is
-% furnished to do so, subject to the following conditions:
+% Redistribution and use in source and binary forms, with or without modification,
+% are permitted provided that the following conditions are met:
 
-% The above copyright notice and this permission notice shall be included in all
-% copies or substantial portions of the Software.
+% * Redistributions of source code must retain the above copyright notice,
+%   this list of conditions and the following disclaimer.
+% * Redistributions in binary form must reproduce the above copyright notice,
+%   this list of conditions and the following disclaimer in the documentation
+%   and/or other materials provided with the distribution.
+% * Neither the name of Leonardo Uieda nor the names of any contributors
+%   may be used to endorse or promote products derived from this software
+%   without specific prior written permission.
 
-% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-% SOFTWARE.
+% THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+% ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+% WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+% DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+% ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+% (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+% LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+% ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+% (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+% SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 
 % ----
 
