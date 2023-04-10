@@ -4,7 +4,8 @@
 *.blg
 
 
-
+*.pdf
+!pranav_kumar_mishra_cv.pdf
 *.docx
 
 ## Core latex/pdflatex auxiliary files:
