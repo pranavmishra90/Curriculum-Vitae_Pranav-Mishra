@@ -18,7 +18,7 @@
 \newcommand{\RUSH}{Rush University}
 \newcommand{\RUMC}{Rush University Medical Center}
 \newcommand{\RUORTHO}{Department of Orthopedic Surgery}
-\newcommand{\RUPEDS}{Department of Pediatric Surgery}
+\newcommand{\RUPEDS}{Department of Pediatrics}
 \newcommand{\RUSURG}{Department of Surgery}
 \newcommand{\SURGONC}{Department of Surgical Oncology}
 
@@ -31,6 +31,7 @@
 \newcommand{\MyName}{Dr. \FirstName\ \MiddleName\ \LastName}
 \newcommand{\Me}{\textbf{\LastName, \Initials}}  % For citations
 \newcommand{\Email}{pranav\_k\_mishra@rush.edu}
+\newcommand{\OfficePhone}{312-942-3146}
 \newcommand{\PersonalWebsite}{www.drpranavmishra.com}
 % \newcommand{\LabWebsite}{www.SOMEWEBSITEHERE.EDU}
 \newcommand{\ORCID}{0000-0001-5219-6269}
@@ -69,7 +70,7 @@
 \usepackage{tabularx}
 \usepackage{ltablex} %this package is not being used?
 
-% Supress warnings for the box size 
+% Supress warnings for the box size
 % (https://tex.stackexchange.com/questions/50830/do-i-have-to-care-about-bad-boxes/50850)
 \hbadness=99999
 \hfuzz=20pt
@@ -117,14 +118,15 @@
 \newcommand{\Appointment}[4]{\textbf{#1}\newline  #2\newline  #3\newline  #4}
 \newcommand{\Twoline}[2]{\textbf{#1}\newline  #2}
 \newcommand{\Oneline}[1]{\textbf{#1}}
+\newcommand{\NoBold}[2]{#1\newline #2}
 
 % Define command to insert month name and year as date
 \usepackage{datetime}
 \newdateformat{monthyear}{\monthname[\THEMONTH], \THEYEAR}
-\newdateformat{iso}{twodigit{\THEDAY}-\twodigit{\THEMONTH}-\THEYEAR}
+\newdateformat{isodate}{\THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}}
 
 % Set the page margins
-\usepackage[letterpaper,margin=1.5cm,includehead,headsep=5mm]{geometry}
+\usepackage[letterpaper,margin=2cm,includehead,headsep=5mm]{geometry}
 
 % To get the total page numbers (\pageref{LastPage})
 \usepackage{lastpage}
@@ -139,7 +141,7 @@
 
 % Remove space between items in itemize and enumerate
 \usepackage{enumitem}
-\setlist{nosep}
+\setitemize{noitemsep, nolistsep}
 
 % Use custom colors
 \usepackage[usenames,dvipsnames]{xcolor}
@@ -184,16 +186,16 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\fontsize{9pt}{10pt}\selectfont
-  \text Updated: \iso\today
+\lfoot{\fontsize{8pt}{8pt}\selectfont
+  \isodate \today
 }
-\chead{
-  \fontsize{9pt}{10pt}\selectfont
+\cfoot{
+  \fontsize{8pt}{8pt}\selectfont
   \MyName
   \hspace{0.2cm} -- \hspace{0.2cm}
   \Title
 }
-\rhead{\fontsize{9pt}{10pt}\selectfont \thepage{} of \pageref*{LastPage}}
+\rfoot{\fontsize{8pt}{8pt}\selectfont \thepage{} of \pageref*{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
 
 % Metadata for the PDF output and control of hyperlinks
@@ -219,11 +221,11 @@
 \newcommand*\publistbasestyle{nejm}
 
 % \usepackage[backend=biber, style=authoryear, sorting=ydnt, maxbibnames=99, defernumbers=true, giveninits=true]{biblatex}
-\usepackage[backend=biber, bibstyle=publist, plauthorhandling=highlight, plauthorname=Mishra, maxbibnames=99, plauthorfirstname=P, plauthorfirstinit=true, boldyear=false, marginyear=false, sorting=ydnt, plnumbered=reset, giveninits=true]{biblatex}
+\usepackage[backend=biber, bibstyle=publist, plauthorhandling=highlight, plauthorname=Mishra, maxbibnames=99, plauthorfirstname=P, plauthorfirstinit=true, boldyear=false, marginyear=false, sorting=ydnt, plnumbered=reset, giveninits=true, doi=true]{biblatex}
 
 \newrefcontext[sorting=ddnt]
 
-\addbibresource{CV.bib}
+\addbibresource{./CV.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypersetup{final}
@@ -243,25 +245,19 @@
 
   Post-Doctoral Research Fellow
 
-  Department of Surgery and Orthopedic Surgery
+  Departments of Surgery and Orthopedic Surgery
 
   Rush University
 \end{center}
 % \\[-0.1cm]
 \rule{\textwidth}{2pt}
-\\[0.1cm]
-% \begin{minipage}[t]{0.7\textwidth}
-% {\fontsize{22pt}{0}\selectfont\MyName}
-% \end{minipage}
-% \begin{minipage}[t]{0.3\textwidth}
-%   \begin{flushright}
-%     Last updated: \iso\today
-%   \end{flushright}
-% \end{minipage}
+
 \begin{minipage}[t]{0.7\textwidth}
   ORCID: \href{https://orcid.org/\ORCID}{\ORCID}
   \\
   Email: \href{mailto:\Email}{\Email}
+  \\
+  Office: \href{tel:\OfficePhone}{\OfficePhone}
   \\
   % Research group: \Website{\LabWebsite} ----- Do not have research group website
   % \\
@@ -270,6 +266,13 @@
 \begin{minipage}[t]{0.3\textwidth}
   \begin{flushright}
     \Address
+  \end{flushright}
+\end{minipage}
+\\[0.1cm]
+\\
+\begin{minipage}[t]{\textwidth}
+  \begin{flushright}
+    CV updated: \isodate \today
   \end{flushright}
 \end{minipage}
 
@@ -313,7 +316,7 @@
 \section{Awards and Honors}
 %----------------------------------------------------------------------------------------------
 \begin{EntriesTable}
-  
+
   \Year{2022} &
   \Twoline{1st Place - Elevator Speech Finalists' Competition - Rush}
   {Judges Award. Exploring novel hormones in the Bone-Fat-Insulin metabolism interface. Presented at the 2022 Rush University Trainee Research Day}
@@ -359,9 +362,9 @@
 %----------------------------------------------------------------------------------------------
 \subsection{Research}
 \begin{EntriesTable}
-  \Duration{2009}{2013} &
+  \Duration{2021}{\Ongoing} &
   \Twoline{Project 1: Determine the mechanisms regulating the bone-fat-glucose interface}{
-    PI: Anna Spagnoli, MD (Orthopedic Surgery); Alfonso Torquati, MD, MSCI (Surgery).\newline
+    PI: Anna Spagnoli, MD (Orthopedic Surgery, Pediatrics); Alfonso Torquati, MD, MSCI (Surgery).\newline
     Understand the role of sclerostin to metabolic, endocrine, and musculoskeletal health through a comparison between obese and non-obese individuals.\newline
     Creation of a biorepository and experimentation with gastrointestinal, adipose, and blood samples from Roux-en-Y gastric bypass patients and non-obese cadavers.\newline
     Clinical research coordination: recruitment and monitoring of patients in the study.\newline
@@ -373,7 +376,7 @@
     PI: Anna Spagnoli, MD (Orthopedic Surgery); Susan Chubinskaya, PhD (Pediatrics).\newline
     Determine the role of IL-36RA in mitigating factors of osteoarthritis (OA) and post-traumatic osteoarthritis (PTOA).\newline
     Examining the augmentation of molecular and histological characteristics of impacted articular cartilage with IL-36RA.\newline
-    Impaction-Bioreactor-Indentation tribology experimental model for mitigating mechanical stress on traumatically damaged cartilage with IL-36RA
+    Primary chondrocyte culture studies with RT-qPCR and Western Blot endpoints
 
   }
   \\
@@ -414,7 +417,7 @@
   \Year{6 weeks} &
   \Twoline{General Surgery}
   {Kasturba Medical College, Manipal: Direct responsibility for ~ 10 in-patients on service, ER call, out-patient clinic services.\newline
-  Intra-operative: first or second assist in open and laparoscopic general surgical cases.\newline 
+  Intra-operative: first or second assist in open and laparoscopic general surgical cases.\newline
   Jackson Park Hospital, Chicago, IL (Abroad rotation, 4 weeks)}
   \\
   \Year{4 weeks} &
@@ -429,14 +432,14 @@
   \\
   \Year{8 weeks} &
   \Twoline{Community Medicine (Preventative and Social Medicine)}
-  {Preventative and social medicine: community surveillance of HIV, leprosy, tuberculosis, complications from diabetes.\newline 
+  {Preventative and social medicine: community surveillance of HIV, leprosy, tuberculosis, complications from diabetes.\newline
   Dr. TMA Pai Rotary Hospital, Karkala, KA (Remote rural secondary care hospital): in-patient, out-patient, and emergency department duty for pediatric, OB/Gyn, and adult emergent patients.\newline
   Rural Primary Healthcare Centers (PHC) in Udupi District, KA: out-patient clinic, managing ~5-10 adult patients per day in the capacity of a family medicine physician.}
   \\
   \Year{8 weeks} &
   \Twoline{Obstetrics and Gynecology}
   {In-patient/out-patient management of ~5-15 patients directly in services, including high-risk pregnancy, fetal medicine, oncology. Intra-op first or second assistant.\newline
-  Labor Theater: conducted / assisted deliveries, monitored/augmented progress of labor.\newline 
+  Labor Theater: conducted / assisted deliveries, monitored/augmented progress of labor.\newline
   Manipal Artificial Reproductive Centre: evaluated for causes of infertility, assisted in management via ovulation induction, IUI, IVF.}
   \\
   \Year{10 weeks} &
@@ -536,15 +539,15 @@
 \TablePad
 \begin{refsection}
 
-  % % Automatic generator - reads CV.bib---------------------------
-  % % Include all of the citations from the bibliography file
-  % ~\nocite{*}
-  % \printbibliography[heading=none, keyword={preprint}]
-  % % -------------------------------------------------------------
+  % Automatic generator - reads CV.bib---------------------------
+  % Include all of the citations from the bibliography file
+  ~\nocite{*}
+  \printbibliography[heading=none, keyword={preprint}]
+  % -------------------------------------------------------------
 
-  % Using Latex file for EntriesTableExtra formatting--------------
-  \input{Bibliography/preprint.tex}
-  %----------------------------------------------------------------
+  % % Using Latex file for EntriesTableExtra formatting--------------
+  % \input{Bibliography/preprint.tex}
+  % %----------------------------------------------------------------
 
 \end{refsection}
 
@@ -552,15 +555,15 @@
 \TablePad
 \begin{refsection}
 
-  % % Automatic generator - reads CV.bib----------------------------
-  % % Include all of the citations from the bibliography file
-  % ~\nocite{*}
-  % \printbibliography[heading=none, keyword={Oral-Presentation}]
-  % % --------------------------------------------------------------
+  % Automatic generator - reads CV.bib----------------------------
+  % Include all of the citations from the bibliography file
+  ~\nocite{*}
+  \printbibliography[heading=none, keyword={Oral-Presentation}]
+  % --------------------------------------------------------------
 
-  % Using Latex file for EntriesTableExtra formatting--------------
-  \input{Bibliography/oral_presentations.tex}
-  %----------------------------------------------------------------
+  % % Using Latex file for EntriesTableExtra formatting--------------
+  % \input{Bibliography/oral_presentations.tex}
+  % %----------------------------------------------------------------
 
 \end{refsection}
 
@@ -568,15 +571,15 @@
 \TablePad
 \begin{refsection}
 
-  % % Automatic generator - reads CV.bib----------------------------
-  % % Include all of the citations from the bibliography file
-  % ~\nocite{*}
-  % \printbibliography[heading=none, keyword={Poster-Presentation}]
-  % % --------------------------------------------------------------
-  
-  % Using Latex file for EntriesTableExtra formatting--------------
-  \input{Bibliography/poster_presentations.tex}
-  %----------------------------------------------------------------
+  % Automatic generator - reads CV.bib----------------------------
+  % Include all of the citations from the bibliography file
+  ~\nocite{*}
+  \printbibliography[heading=none, keyword={Poster-Presentation}]
+  % --------------------------------------------------------------
+
+  % % Using Latex file for EntriesTableExtra formatting--------------
+  % \input{Bibliography/poster_presentations.tex}
+  % %----------------------------------------------------------------
 
 \end{refsection}
 
@@ -584,17 +587,17 @@
 \TablePad
 \begin{refsection}
 
-  % % Automatic generator - reads CV.bib----------------------------
-  % % Include all of the citations from the bibliography file
-  % ~\nocite{*}
-  % \printbibliography[heading=none, keyword={Software}]
-  % % --------------------------------------------------------------
+  % Automatic generator - reads CV.bib----------------------------
+  % Include all of the citations from the bibliography file
+  ~\nocite{*}
+  \printbibliography[heading=none, keyword={Software}]
+  % --------------------------------------------------------------
 
 
-  % Using Latex file for EntriesTableExtra formatting--------------
-  \input{Bibliography/software.tex}
-  %----------------------------------------------------------------
-  
+  % % % Using Latex file for EntriesTableExtra formatting--------------
+  % \input{Bibliography/software.tex}
+  % % %----------------------------------------------------------------
+
 \end{refsection}
 
 % %----------------------------------------------------------------------------------------------
@@ -602,19 +605,45 @@
 % %----------------------------------------------------------------------------------------------
 
 % %----------------------------------------------------------------------------------------------
-% \section{Conference Activity}
-% %----------------------------------------------------------------------------------------------
 
 % %----------------------------------------------------------------------------------------------
 % \section{Departmental Talks}
 % %----------------------------------------------------------------------------------------------
 
+\section{Conference Activity}
 % %----------------------------------------------------------------------------------------------
+\begin{EntriesTable}
+
+
+  \Year{2022, 2023} &
+  \Oneline{Rush University Trainee Research Day}
+  \\
+  \Year{2021, 2022} &
+  \Oneline{Rush Research Symposium}
+  \\
+  \Year{2020} &
+  \Oneline{American Association of Physicians of Indian Origin (AAPI)}
+  \\
+  \Year{2016} &
+  \Oneline{Armed Forces Medical College (AFMC)}
+  \\
+  \Duration{2014}{2016} &
+  \Oneline{Indo-German Convention of Lindau Alumni (IGCLA)}
+  \\
+  \Year{2014, 2015} &
+  \Oneline{Chirurgia}
+  \\
+  \Year{2014, 2015} &
+  \Oneline{Manipal Conventus}
+
+
+\end{EntriesTable}
+
+
+%----------------------------------------------------------------------------------------------
+%
 \section{Teaching Experience}
 % %----------------------------------------------------------------------------------------------
-
-
-
 \subsection{St. Louis Community College - Forest Park}
 
 % 5600 Oakland Ave, St. Louis, MO
@@ -625,9 +654,170 @@
   {Taught practical skills including ventilation, bleeding control, c-spine immobilization, extrication, cardiac arrest management, splinting. \newline
   Evaluated students in trauma/medical mock calls, per NREMT and Missouri standards.}
 \end{EntriesTable}
+
+
+%----------------------------------------------------------------------------------------------
+%
+\section{Research Experience}
 % %----------------------------------------------------------------------------------------------
-% \section{Research Experience}
+\begin{EntriesTable}
+
+  \Year{2021} &
+  \Appointment{Dr. Jayaraj MB, Kasturba Medical College, Manipal; Manipal, KA, India}
+  {Department of Emergency Medicine}
+  {Impact of mHealth pre-hospital communication in improving decision making in the Emergency Department}{Pilot testing my personally developed software, PREPAREDx, as an end-to-end communication and workflow solution that improves emergency care outcomes}
+  \\
+  \Year{2020} &
+  \Appointment{Dr. Chandrakanth Are, University of Nebraska, Omaha, NE, USA}{Department of Surgery}{Analyzing the impact of geopolitical events on non-US citizen internationally trained physicians in the NRMP match}{Cross-correlation studies of international medical graduate placement with overall US immigration data}
+  \\
+  \Year{2020} &
+  \Twoline{Dr. Shekhar Mishra, Science Diplomacy and Innovation Management, Naperville, IL, USA}{Deductive, observational modeling of COVID-19s initial exponential expansion through Phase 1 developed nations
+  Forecasting COVID-19s spread through Phase 2 major emerging nations}
+  \\
+  \Year{2016} &
+  \Appointment{Dr. Suma Nair, Kasturba Medical College, Manipal; Manipal, KA, India}{Department of Community Medicine}{Rural community survey analyzing impacts of economic and social determinants of health in the Udupi region.}{Assessing empathy in medical students using the Jefferson Scale of Empathy Student Version. Data collection and statistical analysis}
+  \\
+  \Year{2010} &
+  \Appointment{Dr. Igor Efimov Lab, Washington University in St. Louis; St. Louis, MO, USA}{Department of Biomedical Engineering}{Effects of PYK2 protein in Ventricular Fibrillation}{Simultaneous optical mapping of voltage and calcium channels of mice, rabbit, and human hearts, paced into ventricular fibrillation}
+  \\
+  \Year{2006, 2007} &
+  \Appointment{Dr. Gerald Jackson, Hbar Technologies, LLC; West Chicago, IL, USA}{Research Assistant}{3D modeling and simulation for an antimatter-sail propelled satellite (2006)}{Research on automobile pollution and alternative energy storage units (2007)}
+
+\end{EntriesTable}
+
+
+
+
+
 % %----------------------------------------------------------------------------------------------
+\section{Leadership Experiences}
+% %----------------------------------------------------------------------------------------------
+\subsection{Rush Postdoctoral Society}
+\begin{EntriesTable}
+
+\Duration{2021}{\Ongoing} &
+\Twoline{Committee Member}
+{
+\vspace{-0.4cm}
+\begin{itemize}
+
+\item Coordinate seminars and workshops aimed at improving the postdoctoral experience at Rush University for over 60 members
+
+\item Integration with the Mentoring Programs Office which promotes placement of postdoctoral fellows and independent research 
+
+\item Representative to the National Postdoctoral Association
+\end{itemize}
+}
+\end{EntriesTable}
+
+\vspace{-1cm}
+\subsection{Kasturba Medical College Student Council}
+\begin{EntriesTable}
+\Duration{2016}{2017} &
+\Twoline{Vice President of Administration}
+  {
+    \vspace{-0.4cm}
+    \begin{itemize}
+    \item Propositioned college administration for the first elected student council, with additional positions to advance student responsibilities and financial independence
+    \item Elected to represent 1,000 medical students on issues primarily concerning academics, room \& boarding, student safety, and overall medical school experience
+    \item Advocated and negotiated for the student body in meetings with student interest groups, faculty heads, college/university administration, and local public officials
+    \item Compiled student data and interviewed for national/international academic accreditation agencies
+  \end{itemize}
+  }
+\\
+\Year{ } &
+\NoBold{Committees representing Kasturba Medical College, Manipal (KMC):}
+  {
+  \vspace{-0.4cm}
+  \begin{itemize}
+  \item New York State Education Department
+  \item National Assessment and Accreditation Council
+  \end{itemize}
+  \vspace{-1cm}
+  }
+\\
+\Year{ } &
+\NoBold{Committees representing KMC medical students:}
+  {
+  \vspace{-0.4cm}
+  \begin{itemize}
+  \item Dean's Committee
+  \item Executive Committee
+  \item Judicial Committee
+  \item First Year Orientation
+  \item Second Year Orientation 
+  \item Cultural Committee
+  \item Mess Committee
+  \item Hostel Committee
+  \item Indo-German Convention of Lindau Alumni
+  \item International Quiz for Medical Undergraduates
+  \end{itemize}
+  \vspace{-1cm}
+  }
+\end{EntriesTable}
+
+\subsection{Cutting Edge Surgical Society at \KMC}
+\begin{EntriesTable}
+  \Year{2017} &  
+  \Twoline{General Secretary}
+  {
+    \vspace{-0.4cm}
+    \begin{itemize}
+    \item Set society schedule
+    \item Coordinated with surgical faculty on providing guest lectures and student opportunities
+    \item College administration liaison
+  \end{itemize}  
+  \vspace{-1cm}
+  }  
+  \\
+  \Duration{2014}{2016} &
+  \Twoline{Webmaster}{
+    \vspace{-0.4cm}
+    \begin{itemize}
+    \item Developed and maintained cuttingedgemanipal.com
+    \end{itemize}
+    \vspace{-1cm}
+  }
+  \\
+  \Duration{2014}{2017} &
+  \Twoline{Core Committee Member}
+  {
+    \vspace{-0.4cm}
+    \begin{itemize}
+      \item Instructed student peers in basic surgical skills including knots, suturing, lumbar puncture, catheterization, ophthalmoscopy, otoscopy
+    \end{itemize}
+    \vspace{-1cm}
+  }
+  \\
+  \Year{2014, 2015} &
+  \Twoline{Organizer of the Chirurgia surgical conference}
+  {}
+\end{EntriesTable}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 % %----------------------------------------------------------------------------------------------
 % \section{Service to Profession}
@@ -713,15 +903,16 @@
   \Duration{2021}{2022}  &
   \Appointment{DNA damage and cellular senescence in osteoarthritis pathophysiology}
   {NIH: R01 AG044034/AG/NIA}
-  {PI: Richard F Loeser, Department of Medicine, University of North Carolina, Chapel Hill}
-  {Sub-contract: Susan Chubinskaya, {\RUPEDS}, {\RUSH}}
-  {Role: Pranav Mishra, human tissue procurement, morphological assessment, and processing}
+  {Awardee: \textbf{Richard F Loeser}, Principle Investigator, Department of Medicine, University of North Carolina, Chapel Hill}
+  {Sub-contract: Susan Chubinskaya, {\RUPEDS}, {\RUSH} \newline
+  {Role: Pranav Mishra, post-doctoral research fellow. Performed human tissue procurement, morphological assessment, and processing}}
   \\
   \Duration{2009}{2009}  &
   \Appointment{Summer Undergraduate Research Fellowship}
+  {Awardee: \textbf{Pranav K. Mishra}, undergraduate student}
   {PI: Igor Efimov, Department of Biomedical Engineering, {\WASHU}}
-  {Funding: Howard Hughes Medical Institute and Imaging Sciences Pathways training grant}
-  {Amount: \$ 3750}
+  {Funding: Howard Hughes Medical Institute and Imaging Sciences Pathways training grant \newline
+  Amount: \$ 3750}
 
 \end{EntriesTable}
 
@@ -737,28 +928,91 @@
 
 % \end{refsection}
 
-% %----------------------------------------------------------------------------------------------
-\section{Glossary}
-% %----------------------------------------------------------------------------------------------
-These are the meanings of the symbols used throughout this document:
+% % %----------------------------------------------------------------------------------------------
+% \section{Glossary}
+% % %----------------------------------------------------------------------------------------------
+% These are the meanings of the symbols used throughout this document:
 
-\TablePad
-\begin{tabularx}{\textwidth}{@{}p{0.03\textwidth} p{0.97\textwidth}@{}}
-  \\
-  \aiOpenAccess & Indicates that a publication is open-access
-  \\
-  \faGithub & Link to a code repository on GitHub
-  \\
-  \faFilePdf & Link to an open-access PDF, usually a preprint or postprint
-  \\
-  \faYoutube & Link to a video on YouTube
-  \\
-  \faChartLine & Link to a data archive
-  \\
-  \faTv & Link to presentation slides
-  \\
-  \faImage & Link to a poster
-\end{tabularx}
+% \TablePad
+% \begin{tabularx}{\textwidth}{@{}p{0.03\textwidth} p{0.97\textwidth}@{}}
+%   \\
+%   \aiOpenAccess & Indicates that a publication is open-access
+%   \\
+%   \faGithub & Link to a code repository on GitHub
+%   \\
+%   \faFilePdf & Link to an open-access PDF, usually a preprint or postprint
+%   \\
+%   \faYoutube & Link to a video on YouTube
+%   \\
+%   \faChartLine & Link to a data archive
+%   \\
+%   \faTv & Link to presentation slides
+%   \\
+%   \faImage & Link to a poster
+% \end{tabularx}
+
+\end{document}
+
 
 %-----------------------------------------------------------------------------------------------
-\end{document}
+% Licenses
+%-----------------------------------------------------------------------------------------------
+
+
+% The MIT License (MIT)
+
+% Copyright (c) 2022-2023 Pranav Kumar Mishra
+% All rights reserved.
+
+% Redistribution and use in source and binary forms, with or without modification,
+% are permitted provided that the following conditions are met:
+
+% * Redistributions of source code must retain the above copyright notice,
+%   this list of conditions and the following disclaimer.
+% * Redistributions in binary form must reproduce the above copyright notice,
+%   this list of conditions and the following disclaimer in the documentation
+%   and/or other materials provided with the distribution.
+% * Neither the name of Leonardo Uieda nor the names of any contributors
+%   may be used to endorse or promote products derived from this software
+%   without specific prior written permission.
+
+% THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+% ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+% WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+% DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+% ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+% (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+% LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+% ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+% (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+% SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+% ----
+
+
+% Copyright (c) 2017 Leonardo Uieda
+% All rights reserved.
+
+% Redistribution and use in source and binary forms, with or without modification,
+% are permitted provided that the following conditions are met:
+
+% * Redistributions of source code must retain the above copyright notice,
+%   this list of conditions and the following disclaimer.
+% * Redistributions in binary form must reproduce the above copyright notice,
+%   this list of conditions and the following disclaimer in the documentation
+%   and/or other materials provided with the distribution.
+% * Neither the name of Leonardo Uieda nor the names of any contributors
+%   may be used to endorse or promote products derived from this software
+%   without specific prior written permission.
+
+% THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+% ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+% WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+% DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+% ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+% (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+% LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+% ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+% (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+% SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

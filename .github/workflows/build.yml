@@ -1,10 +1,42 @@
+# name: 'Build-LaTex-Document'
+# on:
+#   push:
+#     branches:
+#       - main
+#       - draft
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3
+#       - name: Install biber
+#         run:  sudo apt-get -y install biber 
+#       - uses: actions/cache@v3
+#         name: Tectonic Cache
+#         with:
+#           path: ~/.cache/Tectonic
+#           key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
+#           restore-keys: |
+#             ${{ runner.os }}-tectonic-
+#       - uses: wtfjoke/setup-tectonic@v2
+#         with:
+#           github-token: ${{ secrets.GITHUB_TOKEN }}
+#       - run: biber --version
+#       - name: Run Tectonic + Biber
+#         run: tectonic pranav_kumar_mishra_cv.tex --keep-logs
+#       - name: Upload pdf
+#         uses: actions/upload-artifact@v3
+#         with:
+#           name: pranav_kumar_mishra_cv
+#           path: pranav_kumar_mishra_cv.pdf
 name: compile-pdf
 
 on:
-  pull_request:
   push:
     branches:
       - main
+      - draft
 
 # Use bash by default in all jobs
 defaults:
@@ -20,7 +52,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+      - name: Install biber
+        run:  sudo apt-get -y install biber 
 
       - name: Setup caching for tectonic
         uses: actions/cache@v3
@@ -55,7 +89,6 @@ jobs:
           mkdir output
           touch output/.nojekyll
           cp *.pdf output/
-
       - name: Push to gh-pages
         if: success() && github.event_name == 'push'
         # Don't use tags: https://julienrenaux.fr/2019/12/20/github-actions-security-risk/
