@@ -36,7 +36,6 @@ on:
   push:
     branches:
       - main
-      - draft
 
 # Use bash by default in all jobs
 defaults:
@@ -53,8 +52,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install biber
-        run:  sudo apt-get -y install biber 
+      # Trying conda package for biber https://anaconda.org/malramsay/biber
+      # - name: Install biber
+      #   run:  sudo apt-get -y install biber 
 
       - name: Setup caching for tectonic
         uses: actions/cache@v3
