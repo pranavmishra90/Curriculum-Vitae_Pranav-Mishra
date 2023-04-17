@@ -1,0 +1,9 @@
+{
+	"image": "dxjoke/tectonic-docker",
+  
+	"customizations": {
+	  "vscode": {
+		"extensions": ["eamodio.gitlens", "James-Yu.latex-workshop"]
+	  }
+	}
+  }
