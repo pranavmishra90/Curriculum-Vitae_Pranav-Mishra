@@ -1,8 +1,7 @@
 name: cv
 channels:
   - conda-forge
-  - malramsay
 dependencies:
   - python==3.10
   - tectonic
-  - biber
+  - malramsay::biber=2.14
