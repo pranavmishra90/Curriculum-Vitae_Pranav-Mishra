@@ -21,6 +21,17 @@ It's very convenient, can be installed from
 and is faster than using a normal LaTeX compiler.
 There are many ways to install it (see their website for instructions).
 
+### Creating a python environment using `mamba` (`conda`)
+
+Create a python environment using:
+
+````sh
+# From the root directory of this repository
+ mamba env create --file environment.yml --prefix ./env
+ mamba activate ./env
+````
+
+
 I highly recommend using the `Makefile`:
 
 * `make`: builds the PDF
