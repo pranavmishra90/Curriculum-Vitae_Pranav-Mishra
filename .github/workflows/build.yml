@@ -122,7 +122,7 @@ jobs:
       - uses: wtfjoke/setup-tectonic@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          biber-version: 'latest'
+          biber-version: '2.15'
       - name: Run Tectonic + Biber
         run: tectonic pranav_kumar_mishra_cv.tex
       - name: Upload pdf
