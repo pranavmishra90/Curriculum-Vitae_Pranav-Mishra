@@ -57,7 +57,7 @@ jobs:
       # Trying conda package for biber https://anaconda.org/malramsay/biber
 >>>>>>> 5cd7096 (Trying apt for biber again, conda not working)
       - name: Install biber
-        run:  sudo apt-get -y install biber 
+        run:  sudo apt update && apt -y install biber 
 
       - name: Setup caching for tectonic
         uses: actions/cache@v3
