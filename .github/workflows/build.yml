@@ -54,8 +54,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       # Trying conda package for biber https://anaconda.org/malramsay/biber
-      # - name: Install biber
-      #   run:  sudo apt-get -y install biber 
+      - name: Install biber
+        run:  sudo apt-get -y install biber 
 
       - name: Setup caching for tectonic
         uses: actions/cache@v3
