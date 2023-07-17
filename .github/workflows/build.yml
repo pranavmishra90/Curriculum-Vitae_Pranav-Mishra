@@ -36,6 +36,7 @@ on:
   push:
     branches:
       - main
+      - feature/july2023
 
 # Use bash by default in all jobs
 defaults:
