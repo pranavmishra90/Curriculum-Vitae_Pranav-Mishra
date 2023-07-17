@@ -53,15 +53,17 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE
       - name: Checkout
         uses: actions/checkout@v3
-      # Trying conda package for biber https://anaconda.org/malramsay/biber
-      - name: Install biber
-        run:  sudo apt update && apt -y install biber 
 
       - name: Setup caching for tectonic
         uses: actions/cache@v3
         with:
           path: ~/.cache/Tectonic
           key: tectonic-${{ runner.os }}
+
+      - uses: wtfjoke/setup-tectonic@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          biber-version: 'latest'
 
       - name: Setup caching for conda packages
         uses: actions/cache@v3
