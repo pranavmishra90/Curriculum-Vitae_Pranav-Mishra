@@ -3,6 +3,9 @@
 !output/
 *.blg
 
+# Python environment files
+/env/*
+
 
 *.pdf
 !pranav_kumar_mishra_cv.pdf
