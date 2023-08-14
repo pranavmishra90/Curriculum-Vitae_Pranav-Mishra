@@ -1,11 +1,16 @@
 # Curriculum Vitae
 
+This repository serves as a source for automatically generating the curriculum vitae of Dr. Pranav Kumar Mishra. You can **download** the latest compiled PDF:
+[pranav_kumar_mishra_cv.pdf](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/raw/pdf/pranav_kumar_mishra_cv.pdf)
+
+## Status
+
 [![Publish LaTeX CV as PDF](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions/workflows/save_pdf.yml/badge.svg)](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions)
 
-These are the [Latex](./pranav_kumar_mishra_cv.tex) sources for my academic CV. It automatically pulls from .tex files in the [/Bibliography](./Bibliography/) directory. Alternatively, it can source all types of citations using the keyword filter in the [cv.bib](./CV.bib).
+[![Draft builds](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions/workflows/draft_cv.yml/badge.svg)](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions)
 
-**Download** the latest compiled PDF:
-[pranav_kumar_mishra_cv.pdf](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/raw/pdf/pranav_kumar_mishra_cv.pdf)
+
+These are the [Latex](./pranav_kumar_mishra_cv.tex) sources for my academic CV. It automatically pulls from .tex files in the [/Bibliography](./Bibliography/) directory. Alternatively, it can source all types of citations using the keyword filter in the [cv.bib](./CV.bib).
 
 ## Template
 
