@@ -13,6 +13,7 @@ on:
   push:
     branches:
       - main
+      - draft
 
 jobs:
   build:
@@ -33,9 +34,13 @@ jobs:
           key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
           restore-keys: |
             ${{ runner.os }}-tectonic-
+
+
       - uses: wtfjoke/setup-tectonic@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+
       - run: biber --version
 
       # Create the PDF from TEX file
@@ -43,7 +48,7 @@ jobs:
         run: tectonic pranav_kumar_mishra_cv.tex --keep-logs
 
       # Copy the PDF to a new folder called "output"
-      - name: Compile the PDF
+      - name: Copy the PDF to ./output
         run: |
           mkdir output
           cp *.pdf output/
