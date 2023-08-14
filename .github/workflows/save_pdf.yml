@@ -56,7 +56,7 @@ jobs:
 
       # Copy the PDF to a new folder called "output"
       - name: Copy the PDF to the output directory
-        run: cp *.pdf output/
+        run: mkdir output && cp pranav_kumar_mishra_cv.pdf ./output/pranav_kumar_mishra_cv.pdf
 
       - name: Push to a branch called "pdf"
         if: success() && github.event_name == 'push'
