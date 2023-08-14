@@ -19,7 +19,7 @@ on:
   # Pushes to the following branches
   push:
     branches:
-      # - draft
+      - draft
       - feature/*
   # Any Pull Request
   pull_request:
