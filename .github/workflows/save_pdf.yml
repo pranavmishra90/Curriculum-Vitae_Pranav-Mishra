@@ -1,0 +1,59 @@
+name: 'Publish LaTeX CV as PDF'
+
+# Purpose:
+#--------------
+# This GitHub action is designed to run after the user has completed checking
+# the draft CVs created by the GitHub Action "Build LaTeX Draft CV" ('draft_cv.yml').
+# This action is activated only by commits to the main branch. In this case,
+# the PDF file generated will be saved (commited) to a new branch called "pdf".
+# This way, it will have public access without crowding the main branch too much.
+
+# When should this GitHub Action be run
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      # Biber is used to generate our citations
+      - name: Install biber
+        run:  sudo apt-get -y install biber
+        
+      # Tectonic is the LaTeX engine which downloads packages as they are needed  
+      - uses: actions/cache@v3
+        name: Tectonic Cache
+        with:
+          path: ~/.cache/Tectonic
+          key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
+          restore-keys: |
+            ${{ runner.os }}-tectonic-
+      - uses: wtfjoke/setup-tectonic@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: biber --version
+
+      # Create the PDF from TEX file
+      - name: Run Tectonic + Biber
+        run: tectonic pranav_kumar_mishra_cv.tex --keep-logs
+
+      # Copy the PDF to a new folder called "output"
+      - name: Compile the PDF
+        run: |
+          mkdir output
+          cp *.pdf output/
+
+      - name: Push to a branch called "pdf"
+        if: success() && github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          publish_branch: pdf
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'

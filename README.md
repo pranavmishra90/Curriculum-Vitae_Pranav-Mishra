@@ -1,16 +1,21 @@
 # Curriculum Vitae
 
-[![Build-LaTex-Document](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions/workflows/Build-LaTex-Document/badge.svg?event=push)](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions)
+This repository serves as a source for automatically generating the curriculum vitae of Dr. Pranav Kumar Mishra. You can **download** the latest compiled PDF:
+[pranav_kumar_mishra_cv.pdf](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/raw/pdf/pranav_kumar_mishra_cv.pdf)
+
+## Status
+
+[![Publish LaTeX CV as PDF](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions/workflows/save_pdf.yml/badge.svg)](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions)
+
+[![Draft builds](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions/workflows/draft_cv.yml/badge.svg)](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions)
+
 
 These are the [Latex](./pranav_kumar_mishra_cv.tex) sources for my academic CV. It automatically pulls from .tex files in the [/Bibliography](./Bibliography/) directory. Alternatively, it can source all types of citations using the keyword filter in the [cv.bib](./CV.bib).
-
-**Download** the latest compiled PDF:
-[pranav_kumar_mishra_cv.pdf](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/blob/gh-pages/pranav_kumar_mishra_cv.pdf)
 
 ## Template
 
 You're free to reuse and modify this template under the terms of the BSD
-3-clause License (see `LICENSE.md`). Significant credit goes to [Leonardo Uieda](https://github.com/leouieda) who created the original [repository](https://github.com/leouieda/cv). This repository is a modification on his work for content and style.
+3-clause License (see `LICENSE.md`). Significant credit goes to [Leonardo Uieda](https://github.com/leouieda) who created the original [repository](https://github.com/leouieda/cv). This repository is a modification on his work for content, style, and LaTex compilation.
 
 ## Building
 
@@ -21,17 +26,21 @@ It's very convenient, can be installed from
 and is faster than using a normal LaTeX compiler.
 There are many ways to install it (see their website for instructions).
 
-I highly recommend using the `Makefile`:
+### Creating a python environment using `mamba` (`conda`)
 
-* `make`: builds the PDF
-* `make show`: opens the PDF on the default web browser
-* `make clean`: removes the built PDF and any other generated files
+Create a python environment using:
+
+````sh
+# From the root directory of this repository
+ mamba env create --file environment.yml --prefix ./env
+ mamba activate ./env
+````
 
 ## Deploying
 
-A PDF is compiled automatically by GitHub Actions with every commit to the
-`main` branch and uploaded to the `gh-pages` branch.
-This way, the compiled PDF is updated and served automatically.
+A PDF is compiled automatically by GitHub Actions with every commit to a `features/*` or `draft` branch and stored as a GitHub Actions Artifact (retention = 5 days). When commits are made to the `main` branch, the PDF file is uploaded to the `pdf` branch and committed there.
+
+This allows for a convenient viewing of draft changes to a CV without crowding up the git history excess PDF files. Once changes are finalized, the PDFs are kept in a dedicated branch. (Note: All changes will be accessible through the git history on the various `.tex` and `.bib` files).
 
 ## License
 
