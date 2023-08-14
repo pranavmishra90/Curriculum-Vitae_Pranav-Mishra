@@ -15,6 +15,7 @@ on:
       - main
       - draft
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -43,18 +44,12 @@ jobs:
       - name: Run Tectonic + Biber
         run: tectonic pranav_kumar_mishra_cv.tex --keep-logs
 
-      # Copy the PDF to a new folder called "output"
-      - name: Copy the PDF to ./output
-        run: |
-          mkdir output
-          cp *.pdf output/
 
-      - name: Push to a branch called "pdf"
-        if: success() && github.event_name == 'push'
-        uses: peaceiris/actions-gh-pages
+      # Save the PDF as a GitHub Action Artifact
+      # These artefacts can be found within the run's summary page
+      - name: Upload pdf
+        uses: actions/upload-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output
-          publish_branch: pdf
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+          name: pranav_kumar_mishra_cv
+          path: pranav_kumar_mishra_cv.pdf
+          retention-days: 5 #delete file after 'n' days
