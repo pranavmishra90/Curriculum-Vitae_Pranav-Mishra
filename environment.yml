@@ -4,4 +4,4 @@ channels:
 dependencies:
   - python==3.10
   - tectonic
-  - malramsay::biber=2.14
+  # - malramsay::biber=2.14
