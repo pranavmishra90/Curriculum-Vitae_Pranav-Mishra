@@ -10,12 +10,12 @@ This repository serves as a source for automatically generating the curriculum v
 [![Draft builds](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions/workflows/draft_cv.yml/badge.svg)](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions) [![Publish LaTeX CV as PDF](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions/workflows/save_pdf.yml/badge.svg)](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/actions)
 
 
-These are the [Latex](./pranav_kumar_mishra_cv.tex) sources for my academic CV. It automatically pulls from .tex files in the [/Bibliography](./Bibliography/) directory. Alternatively, it can source all types of citations using the keyword filter in the [cv.bib](./CV.bib).
+These are the [Latex](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/blob/main/pranav_kumar_mishra_cv.tex) sources for my academic CV. It automatically pulls from .tex files in the [/Bibliography](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/tree/main/Bibliography) directory. Alternatively, it can source all types of citations using the keyword filter in the [cv.bib](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/blob/main/CV.bib).
 
 ## Template
 
 You're free to reuse and modify this template under the terms of the BSD
-3-clause License (see `LICENSE.md`). Significant credit goes to [Leonardo Uieda](https://github.com/leouieda) who created the original [repository](https://github.com/leouieda/cv). This repository is a modification on his work for content, style, and LaTex compilation.
+3-clause License (see `LICENSE.md`). Significant credit goes to [Leonardo Uieda](https://github.com/leouieda) who created the original [repository](https://github.com/leouieda/cv). This repository is a modification on his work for content, style, and LaTeX compilation.
 
 ## Building
 
@@ -45,4 +45,4 @@ This allows for a convenient viewing of draft changes to a CV without crowding u
 ## License
 
 All LaTeX template source code is distributed under the
-[BSD 3-clause License](https://opensource.org/licenses/BSD-3-Clause). See [License](./LICENSE.md) for more information.
+[BSD 3-clause License](https://opensource.org/licenses/BSD-3-Clause). See [License](https://github.com/pranavmishra90/Curriculum-Vitae_Pranav-Mishra/blob/main/LICENSE.md) for more information.
