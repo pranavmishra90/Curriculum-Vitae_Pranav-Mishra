@@ -33,7 +33,7 @@ jobs:
       
       # Biber is used to generate our citations
       - name: Install biber
-        run:  sudo apt-get -y install biber
+        run:  sudo apt-get update && sudo apt-get -y install biber
         
       # Tectonic is the LaTeX engine which downloads packages as they are needed  
       - uses: actions/cache@v3
