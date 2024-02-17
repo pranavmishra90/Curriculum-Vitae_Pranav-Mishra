@@ -24,6 +24,10 @@ on:
   # Any Pull Request
   pull_request:
 
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -33,7 +37,7 @@ jobs:
       
       # Biber is used to generate our citations
       - name: Install biber
-        run:  sudo apt-get -y install biber
+        run:  sudo apt-get update && sudo apt-get -y install biber
         
       # Tectonic is the LaTeX engine which downloads packages as they are needed  
       - uses: actions/cache@v3
